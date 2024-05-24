@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ccxn50scwcqdc"]
 
-[ext_resource type="Script" path="res://hilation.gd" id="1_5818b"]
-[ext_resource type="Texture2D" uid="uid://m6eg7mqphjw3" path="res://Spritz/torso.png" id="1_bgksn"]
+[ext_resource type="Script" path="res://scripts/hilation.gd" id="1_5818b"]
+[ext_resource type="Texture2D" uid="uid://m6eg7mqphjw3" path="res://spritz/torso.png" id="1_bgksn"]
 
 [node name="hilation" type="CharacterBody2D"]
 texture_filter = 1

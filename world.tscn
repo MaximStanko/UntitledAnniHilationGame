@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dakt8pb7ioisj"]
-
-[ext_resource type="PackedScene" uid="uid://ccxn50scwcqdc" path="res://hilation.tscn" id="1_6el2d"]
-
-[node name="world" type="Node2D"]
-
-[node name="hilation" parent="." instance=ExtResource("1_6el2d")]
