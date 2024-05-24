@@ -14,7 +14,8 @@ func spawn():
 		spawn_new = false
 		await get_tree().create_timer(spawn_interval).timeout
 		var instance = enemy.instantiate()
-		add_child(instance)
+		instance.position = position
+		get_window().add_child(instance)
 		spawn_new = true
 
 func _process(delta):

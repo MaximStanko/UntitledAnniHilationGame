@@ -14,7 +14,7 @@ var player
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	if hilation.position - position < anni.position - position:
+	if (hilation.position - position).length() < (anni.position - position).length():
 		player = hilation
 	else:
 		player = anni
