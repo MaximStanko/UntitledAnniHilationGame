@@ -5,8 +5,8 @@ var damage_slow = 1
 var hp = 100
 
 # Reference muss geändert werden
-@onready var hilation = $"../hilation"
-@onready var anni = $"../Anni"
+@onready var hilation = %hilation
+@onready var anni = %Anni
 @onready var timer_enemy_hit = $TimerEnemyHit
 @onready var timer_player_hit = $TimerPlayerHit
 
