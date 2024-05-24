@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://dakt8pb7ioisj"]
+
+[ext_resource type="PackedScene" uid="uid://ccxn50scwcqdc" path="res://scenes/hilation.tscn" id="1_u8nxa"]
+[ext_resource type="PackedScene" uid="uid://cuavkm0x7ybgq" path="res://scenes/enemy_prototype.tscn" id="2_7n4gb"]
+[ext_resource type="PackedScene" uid="uid://b0mnvtl0ebrcg" path="res://scenes/anni.tscn" id="3_f8ire"]
+
+[node name="world" type="Node2D"]
+
+[node name="hilation" parent="." instance=ExtResource("1_u8nxa")]
+
+[node name="Enemy_Prototype" parent="." instance=ExtResource("2_7n4gb")]
+position = Vector2(298, 207)
+
+[node name="Anni" parent="." instance=ExtResource("3_f8ire")]
+position = Vector2(120, 27)
