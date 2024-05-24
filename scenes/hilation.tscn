@@ -1,82 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://ccxn50scwcqdc"]
+[gd_scene load_steps=4 format=3 uid="uid://ccxn50scwcqdc"]
 
 [ext_resource type="Script" path="res://scripts/hilation.gd" id="1_5818b"]
+[ext_resource type="PackedScene" uid="uid://d1fcoqil04rns" path="res://scenes/arm.tscn" id="3_iq7d8"]
 [ext_resource type="Texture2D" uid="uid://bu3k1as8veql8" path="res://Spritz/gBot_pieces.webp" id="3_tpinn"]
 
 [node name="hilation" type="CharacterBody2D"]
 texture_filter = 1
 script = ExtResource("1_5818b")
 
-[node name="polygons" type="Node2D" parent="."]
+[node name="arm_l" parent="." instance=ExtResource("3_iq7d8")]
+position = Vector2(7, -2)
 
-[node name="arm_l" type="Polygon2D" parent="polygons"]
-position = Vector2(56, 39)
+[node name="torso" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("3_tpinn")
-skeleton = NodePath("../../Skeleton2D")
-polygon = PackedVector2Array(231, 40, 282, 78, 256, 184, 292, 307, 214, 356, 188, 199, 185, 77)
-uv = PackedVector2Array(231, 40, 282, 78, 256, 184, 292, 307, 214, 356, 188, 199, 185, 77)
+region_enabled = true
+region_rect = Rect2(347.59, 15.8974, 171.487, 327.969)
 
-[node name="leg_l" type="Polygon2D" parent="polygons"]
-position = Vector2(-64, -141)
-texture = ExtResource("3_tpinn")
-skeleton = NodePath("../../Skeleton2D")
-polygon = PackedVector2Array(346, 577, 396, 633, 406, 683, 255, 689, 250, 494, 295, 398, 338, 395)
-uv = PackedVector2Array(346, 577, 396, 633, 406, 683, 255, 689, 250, 494, 295, 398, 338, 395)
-
-[node name="torso" type="Polygon2D" parent="polygons"]
-position = Vector2(-230, -28)
-texture = ExtResource("3_tpinn")
-skeleton = NodePath("../../Skeleton2D")
-polygon = PackedVector2Array(423.034, 20.7865, 342.135, 120.225, 354.494, 322.472, 421.91, 346.629, 489.888, 318.539, 529.775, 145.506, 469.663, 30.3371)
-uv = PackedVector2Array(423.034, 20.7865, 342.135, 120.225, 354.494, 322.472, 421.91, 346.629, 489.888, 318.539, 529.775, 145.506, 469.663, 30.3371)
-
-[node name="leg_r" type="Polygon2D" parent="polygons"]
-position = Vector2(76, -134)
-texture = ExtResource("3_tpinn")
-skeleton = NodePath("../../Skeleton2D")
-polygon = PackedVector2Array(118, 592, 158, 619, 171, 650, 181, 692, 24, 687, 71, 393, 110, 400)
-uv = PackedVector2Array(118, 592, 158, 619, 171, 650, 181, 692, 24, 687, 71, 393, 110, 400)
-
-[node name="head" type="Polygon2D" parent="polygons"]
-position = Vector2(-442, -612)
-texture = ExtResource("3_tpinn")
-skeleton = NodePath("../../Skeleton2D")
-polygon = PackedVector2Array(690.09, 255.856, 594.595, 258.559, 489.189, 349.55, 479.279, 604.505, 536.937, 683.784, 759.459, 687.387, 824.324, 621.622, 827.928, 326.126)
-uv = PackedVector2Array(690.09, 255.856, 594.595, 258.559, 489.189, 349.55, 479.279, 604.505, 536.937, 683.784, 759.459, 687.387, 824.324, 621.622, 827.928, 326.126)
-
-[node name="arm_r" type="Polygon2D" parent="polygons"]
-position = Vector2(50, 43)
-texture = ExtResource("3_tpinn")
-skeleton = NodePath("../../Skeleton2D")
-polygon = PackedVector2Array(92, 17, 152, 51, 109, 176, 141, 350, 52, 372, 15, 209, 22, 61)
-uv = PackedVector2Array(92, 17, 152, 51, 109, 176, 141, 350, 52, 372, 15, 209, 22, 61)
-
-[node name="Skeleton2D" type="Skeleton2D" parent="."]
-
-[node name="hip" type="Bone2D" parent="Skeleton2D"]
-position = Vector2(209, 284)
-rest = Transform2D(1, 0, 0, 1, 209, 284)
-
-[node name="chest" type="Bone2D" parent="Skeleton2D/hip"]
-position = Vector2(1, -174)
-rest = Transform2D(1, 0, 0, 1, 1, -174)
-
-[node name="heads" type="Bone2D" parent="Skeleton2D/hip/chest"]
-position = Vector2(19, -232)
-rest = Transform2D(1, 0, 0, 1, 19, -232)
-
-[node name="arm_l" type="Bone2D" parent="Skeleton2D/hip/chest"]
-position = Vector2(-120, 258)
-rest = Transform2D(1, 0, 0, 1, -120, 258)
-
-[node name="arm_r" type="Bone2D" parent="Skeleton2D/hip/chest"]
-position = Vector2(93, 219)
-rest = Transform2D(1, 0, 0, 1, 93, 219)
-
-[node name="leg_r" type="Bone2D" parent="Skeleton2D/hip"]
-position = Vector2(-77, 216)
-rest = Transform2D(1, 0, 0, 1, -77, 216)
-
-[node name="leg_l" type="Bone2D" parent="Skeleton2D/hip"]
-position = Vector2(78, 211)
-rest = Transform2D(1, 0, 0, 1, 78, 211)
+[node name="arm_r" parent="." instance=ExtResource("3_iq7d8")]
+position = Vector2(-9, -2)
