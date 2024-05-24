@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c0ss4phg63y6u"
-path="res://.godot/imported/schnabeltier - Kopie.png-7b4d13d64ea5837b5ce35ca8135ba180.ctex"
+path="res://.godot/imported/schnabeltier - Kopie.png-19046e9b42dadf46d73cd9d4fbd0f8d2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Spritz/schnabeltier - Kopie.png"
-dest_files=["res://.godot/imported/schnabeltier - Kopie.png-7b4d13d64ea5837b5ce35ca8135ba180.ctex"]
+source_file="res://spritz/schnabeltier - Kopie.png"
+dest_files=["res://.godot/imported/schnabeltier - Kopie.png-19046e9b42dadf46d73cd9d4fbd0f8d2.ctex"]
 
 [params]
 
