@@ -22,8 +22,8 @@ func _physics_process(delta) -> void:
 	dash()
 	
 	var velo = Vector2(
-		Input.get_action_strength("hilation_right") - Input.get_action_strength("hilation_left"),
-		Input.get_action_strength("hilation_down") - Input.get_action_strength("hilation_up")
+		Input.get_action_strength("anni_right") - Input.get_action_strength("anni_left"),
+		Input.get_action_strength("anni_down") - Input.get_action_strength("anni_up")
 	).normalized()
 	
 	if not vector_is_zero(velo) and not dashing:
