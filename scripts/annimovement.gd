@@ -2,15 +2,16 @@ extends CharacterBody2D
 
 # Movement speed in pixels per second.
 @export var walk_speed: float = 300.0
-@export var dash_speed: float = 600.0
-@export var dash_distance: float = 150.0
+@export var dash_speed: float = 900.0
+@export var dash_distance: float = 200.0
+@export var dash_influence_factor: float = 0.08
 
 var dashing = false
 var dash_dir: Vector2
 var last_active_dir = Vector2.ZERO
 
 func dash() -> void:
-	if Input.is_action_just_pressed("dash") and not dashing:
+	if Input.is_action_just_pressed("anni_dash") and not dashing:
 		dashing = true
 		await get_tree().create_timer(dash_distance / dash_speed).timeout
 		dashing = false
@@ -30,6 +31,7 @@ func _physics_process(delta) -> void:
 		last_active_dir = velo
 	
 	if dashing:
+		last_active_dir = (last_active_dir + velo * dash_influence_factor).normalized()
 		self.velocity = last_active_dir * dash_speed
 	else:
 		self.velocity = velo * walk_speed

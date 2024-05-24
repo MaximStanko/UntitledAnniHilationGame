@@ -1,72 +1,72 @@
-[gd_scene load_steps=15 format=3 uid="uid://cuavkm0x7ybgq"]
+[gd_scene load_steps=15 format=3 uid="uid://dm61s3jxeuyaq"]
 
 [ext_resource type="Script" path="res://Scripts/enemy_prototype.gd" id="1_18nj7"]
-[ext_resource type="Texture2D" uid="uid://c0ss4phg63y6u" path="res://spritz/schnabeltier - Kopie.png" id="2_ny8sg"]
+[ext_resource type="Texture2D" uid="uid://c0ss4phg63y6u" path="res://spritz/schnabeltier - Kopie.png" id="1_afl5p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jrmiq"]
 size = Vector2(6, 12)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3a07x"]
-atlas = ExtResource("2_ny8sg")
+[sub_resource type="AtlasTexture" id="AtlasTexture_1qnr6"]
+atlas = ExtResource("1_afl5p")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_t3ea6"]
-atlas = ExtResource("2_ny8sg")
+[sub_resource type="AtlasTexture" id="AtlasTexture_dbde7"]
+atlas = ExtResource("1_afl5p")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_u1ea1"]
-atlas = ExtResource("2_ny8sg")
+[sub_resource type="AtlasTexture" id="AtlasTexture_jwaty"]
+atlas = ExtResource("1_afl5p")
 region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rslyv"]
-atlas = ExtResource("2_ny8sg")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ctlj7"]
+atlas = ExtResource("1_afl5p")
 region = Rect2(96, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ixqp7"]
-atlas = ExtResource("2_ny8sg")
+[sub_resource type="AtlasTexture" id="AtlasTexture_jortv"]
+atlas = ExtResource("1_afl5p")
 region = Rect2(128, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ik4wm"]
-atlas = ExtResource("2_ny8sg")
+[sub_resource type="AtlasTexture" id="AtlasTexture_n35le"]
+atlas = ExtResource("1_afl5p")
 region = Rect2(160, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tavc6"]
-atlas = ExtResource("2_ny8sg")
+[sub_resource type="AtlasTexture" id="AtlasTexture_wp4dj"]
+atlas = ExtResource("1_afl5p")
 region = Rect2(192, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bxbg7"]
-atlas = ExtResource("2_ny8sg")
+[sub_resource type="AtlasTexture" id="AtlasTexture_qgr3n"]
+atlas = ExtResource("1_afl5p")
 region = Rect2(224, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_guv1x"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3a07x")
+"texture": SubResource("AtlasTexture_1qnr6")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_t3ea6")
+"texture": SubResource("AtlasTexture_dbde7")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_u1ea1")
+"texture": SubResource("AtlasTexture_jwaty")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rslyv")
+"texture": SubResource("AtlasTexture_ctlj7")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ixqp7")
+"texture": SubResource("AtlasTexture_jortv")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ik4wm")
+"texture": SubResource("AtlasTexture_n35le")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_tavc6")
+"texture": SubResource("AtlasTexture_wp4dj")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bxbg7")
+"texture": SubResource("AtlasTexture_qgr3n")
 }],
 "loop": true,
-"name": &"new_animation",
+"name": &"default",
 "speed": 10.0
 }]
 
@@ -89,9 +89,8 @@ shape = SubResource("RectangleShape2D_jrmiq")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -12)
 sprite_frames = SubResource("SpriteFrames_guv1x")
-animation = &"new_animation"
-autoplay = "new_animation"
-frame_progress = 0.428116
+autoplay = "default"
+frame_progress = 0.206804
 
 [node name="PlayerDetector" type="Area2D" parent="."]
 script = SubResource("GDScript_gteii")
@@ -100,6 +99,12 @@ script = SubResource("GDScript_gteii")
 position = Vector2(1, -7)
 shape = SubResource("RectangleShape2D_2mnqc")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="TimerEnemyHit" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="TimerPlayerHit" type="Timer" parent="."]
+wait_time = 0.2
 
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
+[connection signal="timeout" from="TimerEnemyHit" to="." method="_on_timer_enemy_hit_timeout"]
+[connection signal="timeout" from="TimerPlayerHit" to="." method="_on_timer_player_hit_timeout"]
