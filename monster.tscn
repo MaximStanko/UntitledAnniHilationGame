@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://dje44acqmu7uy"]
+
+[node name="monster" type="Area2D"]
