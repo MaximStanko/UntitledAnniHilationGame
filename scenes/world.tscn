@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://dakt8pb7ioisj"]
 
 [ext_resource type="PackedScene" uid="uid://ccxn50scwcqdc" path="res://scenes/hilation.tscn" id="1_u8nxa"]
-[ext_resource type="PackedScene" uid="uid://cuavkm0x7ybgq" path="res://scenes/enemy_prototype.tscn" id="2_7n4gb"]
+[ext_resource type="PackedScene" uid="uid://dm61s3jxeuyaq" path="res://scenes/enemy_prototype.tscn" id="2_7n4gb"]
 [ext_resource type="PackedScene" uid="uid://ickdijbnfl8j" path="res://scenes/anni.tscn" id="3_f8ire"]
-[ext_resource type="PackedScene" uid="uid://b6ld2srnl04e7" path="res://scenes/spawner.tscn" id="4_pv2u7"]
+[ext_resource type="PackedScene" path="res://scenes/spawner.tscn" id="4_pv2u7"]
 
 [node name="world" type="Node2D"]
 

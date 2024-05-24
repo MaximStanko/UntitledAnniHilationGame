@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://cid1rniirc7tq"]
+
+[ext_resource type="Script" path="res://scripts/hud.gd" id="1_13kae"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_13kae")
+
+[node name="score_display" type="Label" parent="."]
+offset_right = 283.0
+offset_bottom = 22.0
+theme_override_font_sizes/font_size = 15
+text = "Score: 0
+"
+
+[node name="time_display" type="Label" parent="."]
+offset_left = 2.0
+offset_top = 16.0
+offset_right = 340.0
+offset_bottom = 47.0
+theme_override_font_sizes/font_size = 15
+text = "Zeit: 0s
+"
+
+[node name="survive_time" type="Timer" parent="."]
+
+[connection signal="timeout" from="survive_time" to="." method="_on_survive_time_timeout"]
