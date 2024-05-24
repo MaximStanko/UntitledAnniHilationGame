@@ -10,7 +10,7 @@ var dash_dir: Vector2
 var last_active_dir = Vector2.ZERO
 
 func dash() -> void:
-	if Input.is_action_just_pressed("dash") and not dashing:
+	if Input.is_action_just_pressed("anni_dash") and not dashing:
 		dashing = true
 		await get_tree().create_timer(dash_distance / dash_speed).timeout
 		dashing = false
