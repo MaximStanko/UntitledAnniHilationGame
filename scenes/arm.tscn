@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://d1fcoqil04rns"]
 
 [ext_resource type="Script" path="res://scripts/arm.gd" id="1_1wlkx"]
-[ext_resource type="Texture2D" uid="uid://bu3k1as8veql8" path="res://Spritz/gBot_pieces.webp" id="2_y3leu"]
+[ext_resource type="Texture2D" uid="uid://bu3k1as8veql8" path="res://spritz/gBot_pieces.webp" id="2_y3leu"]
 
 [node name="arm" type="Node2D"]
 script = ExtResource("1_1wlkx")

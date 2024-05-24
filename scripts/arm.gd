@@ -2,6 +2,7 @@ extends Node2D
 
 @export var STRIKE_DURATION = .5
 
+var is_attached = true
 var is_striking = false
 var strike_progress = 0.0
 
@@ -20,5 +21,14 @@ func _process(delta):
 			$Sprite2D.rotation = 0
 			strike_progress = 0.0
 
+func attach():
+	is_attached = true
+	show()
+
+func detach():
+	is_attached = false
+	hide()
+
 func strike():
-	is_striking = true
+	if is_attached:
+		is_striking = true

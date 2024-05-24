@@ -1,12 +1,14 @@
 extends CharacterBody2D
 
+signal dropped_part
+
 # Movement speed in pixels per second.
 @export var speed = 500
 @export var STRIKE_R_DURATION = 2.0
 
 var is_strike_r = false
 var strike_r_progress = 0.0
-var body_parts = [$arm_l, $arm_r]
+var attached_parts = [$arm_l, $arm_r]
 
 func _physics_process(delta):
 	var velo = Vector2(		
@@ -21,3 +23,8 @@ func _physics_process(delta):
 	
 	if Input.is_action_pressed("hilation_strike_l"):
 		$arm_l.strike()
+
+
+func _on_area_2d_body_entered(body):
+	var part = attached_parts.pop_front()
+	dropped_part.emit(part)

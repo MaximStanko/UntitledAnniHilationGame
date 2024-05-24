@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://dm61s3jxeuyaq"]
 
-[ext_resource type="Script" path="res://Scripts/enemy_prototype.gd" id="1_18nj7"]
+[ext_resource type="Script" path="res://scripts/enemy_prototype.gd" id="1_18nj7"]
 [ext_resource type="Texture2D" uid="uid://c0ss4phg63y6u" path="res://spritz/schnabeltier - Kopie.png" id="1_afl5p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jrmiq"]
