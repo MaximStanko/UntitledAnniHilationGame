@@ -6,6 +6,7 @@ signal part_detached
 @export var LEG_SPEED = 150
 
 var attached_parts = []
+var flipped = false
 
 func _ready():
 	attached_parts = [$arm_l, $leg_r, $leg_l, $arm_r]
@@ -31,6 +32,13 @@ func _physics_process(delta):
 		$leg_l.set("is_walking", false)
 		$leg_r.set("is_walking", false)
 
+	if self.velocity.x < 0:
+		flipped = true
+	elif self.velocity.x > 0:
+		flipped = false
+	for part in self.attached_parts:
+		part.get_node("Sprite2D").flip_h = flipped
+
 	if Input.is_action_pressed("hilation_strike_r"):
 		$arm_r.strike()
 
@@ -41,4 +49,9 @@ func on_hit():
 	var part = self.attached_parts.pop_front()
 	if part:
 		part.detach()
-		self.part_detached.emit()
+		self.part_detached.emit(part)
+
+func attach(dropped_part):
+	var part = dropped_part.body_part
+	part.attach()
+	self.attached_parts.append(part)
