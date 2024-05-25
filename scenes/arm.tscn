@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://d1fcoqil04rns"]
+[gd_scene load_steps=4 format=3 uid="uid://d1fcoqil04rns"]
 
 [ext_resource type="Script" path="res://scripts/arm.gd" id="1_1wlkx"]
-[ext_resource type="Texture2D" uid="uid://bu3k1as8veql8" path="res://spritz/gBot_pieces.webp" id="2_y3leu"]
+[ext_resource type="Texture2D" uid="uid://d20jmxweobex2" path="res://spritz/gBot_pieces.webp" id="2_y3leu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_njpti"]
+size = Vector2(48, 41)
 
 [node name="arm" type="Node2D"]
 script = ExtResource("1_1wlkx")
@@ -12,3 +15,9 @@ texture = ExtResource("2_y3leu")
 offset = Vector2(0, 100)
 region_enabled = true
 region_rect = Rect2(31.7233, 23.2461, 102.892, 336.544)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-25, 13.5)
+shape = SubResource("RectangleShape2D_njpti")

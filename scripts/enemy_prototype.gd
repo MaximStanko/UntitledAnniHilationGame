@@ -8,10 +8,10 @@ const group_name = "enemy"
 @export var enemy_pushback = 300
 @export var damage_slow = 1
 @export var hp = 100
+var hilation
+var anni
 
 # Reference muss geändert werden
-@onready var hilation = %hilation
-@onready var anni = %Anni
 @onready var timer_enemy_hit = $TimerEnemyHit
 @onready var timer_player_hit = $TimerPlayerHit
 
@@ -58,11 +58,10 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _on_player_detector_body_entered(body):
-	var type = body.get_meta("type")
-	if (type == "anni" or type == "hilation"):
-		hit.emit(body)
-		step_back = true
-		timer_player_hit.start()
+	if body==hilation:
+		hilation.on_hit()
+	if body == anni:
+		anni.on_hit()
 
 func take_hit(damage):
 	print("debug: enemy hit")
@@ -77,3 +76,6 @@ func _on_timer_enemy_hit_timeout():
 
 func _on_timer_player_hit_timeout():
 	step_back = false
+
+func on_hit():
+	print("enemy was hit")

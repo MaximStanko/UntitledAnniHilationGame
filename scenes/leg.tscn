@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://xyt6r3o4pq4s"]
+
+[ext_resource type="Script" path="res://scripts/leg.gd" id="1_imoiw"]
+[ext_resource type="Texture2D" uid="uid://d20jmxweobex2" path="res://spritz/gBot_pieces.webp" id="2_0dby7"]
+
+[node name="leg" type="Node2D"]
+script = ExtResource("1_imoiw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_0dby7")
+offset = Vector2(0, 130)
+region_enabled = true
+region_rect = Rect2(0, 393.98, 195.279, 302.02)
