@@ -26,6 +26,7 @@ var pushback_vector
 var lastVel
 var step_back = false
 var player_pushback = Vector2.ZERO
+var player_knockback = Vector2.ZERO
 var hp
 var can_attack = true
 var speed_multiplier = 2
@@ -35,6 +36,9 @@ func _ready():
 	add_to_group(group_name)
 	hp = start_hp
 	attack_cooldown_timer.wait_time = attack_cooldown
+
+func vector_is_zero(v: Vector2) -> bool:
+	return abs(v.x) < 1 and abs(v.y) < 1
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
@@ -73,7 +77,11 @@ func _physics_process(delta):
 		velocity += pushback_vector.rotated(deg_to_rad(10))
 	
 	velocity += player_pushback
-	player_pushback *= 0.2 
+	player_pushback *= 0.2
+	
+	if not vector_is_zero(player_knockback):
+		velocity = player_knockback
+		player_knockback *= 0.8
 	
 	move_and_slide()
 
@@ -103,5 +111,6 @@ func _on_attack_cooldown_timeout():
 func _on_timer_player_hit_timeout():
 	step_back = false
 
-func on_hit():
-	take_hit(50)
+func on_hit(dmg, knockback):
+	take_hit(dmg)
+	player_knockback = (position - hilation.position).normalized() * knockback
