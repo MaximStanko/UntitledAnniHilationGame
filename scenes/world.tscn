@@ -1,11 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://dakt8pb7ioisj"]
+[gd_scene load_steps=6 format=3 uid="uid://dakt8pb7ioisj"]
 
 [ext_resource type="PackedScene" uid="uid://ccxn50scwcqdc" path="res://scenes/hilation.tscn" id="1_u8nxa"]
-[ext_resource type="PackedScene" uid="uid://cuavkm0x7ybgq" path="res://scenes/enemy_prototype.tscn" id="2_7n4gb"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_y3ec5"]
+[ext_resource type="PackedScene" uid="uid://dm61s3jxeuyaq" path="res://scenes/enemy_prototype.tscn" id="2_7n4gb"]
 [ext_resource type="PackedScene" uid="uid://ickdijbnfl8j" path="res://scenes/anni.tscn" id="3_f8ire"]
-[ext_resource type="PackedScene" uid="uid://b6ld2srnl04e7" path="res://scenes/spawner.tscn" id="4_pv2u7"]
+[ext_resource type="PackedScene" path="res://scenes/spawner.tscn" id="4_pv2u7"]
 
 [node name="world" type="Node2D"]
+
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource("1_y3ec5")
+
+[node name="dmg_timer" type="Timer" parent="GameManager"]
+wait_time = 0.6
 
 [node name="hilation" parent="." instance=ExtResource("1_u8nxa")]
 unique_name_in_owner = true
@@ -20,3 +27,6 @@ position = Vector2(120, 27)
 [node name="Spawner" parent="." instance=ExtResource("4_pv2u7")]
 position = Vector2(480, 244)
 enemy_file_location = "res://scenes/test.tscn"
+
+[connection signal="timeout" from="GameManager/dmg_timer" to="GameManager" method="_on_dmg_timer_timeout"]
+[connection signal="hit" from="Enemy_Prototype" to="GameManager" method="_on_enemy_prototype_hit"]

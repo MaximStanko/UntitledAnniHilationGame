@@ -6,6 +6,7 @@ extends CharacterBody2D
 @export var dash_distance: float = 200.0
 @export var dash_influence_factor: float = 0.08
 
+
 var dashing = false
 var dash_dir: Vector2
 var last_active_dir = Vector2.ZERO
@@ -38,3 +39,5 @@ func _physics_process(delta) -> void:
 	
 	move_and_slide()
 
+func on_hit(src):
+	HUD.update_health(-src)

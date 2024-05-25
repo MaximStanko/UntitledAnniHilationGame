@@ -1,12 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://ccxn50scwcqdc"]
+[gd_scene load_steps=5 format=3 uid="uid://ccxn50scwcqdc"]
 
 [ext_resource type="Script" path="res://scripts/hilation.gd" id="1_5818b"]
-[ext_resource type="Texture2D" uid="uid://m6eg7mqphjw3" path="res://spritz/torso.png" id="1_bgksn"]
+[ext_resource type="PackedScene" uid="uid://d1fcoqil04rns" path="res://scenes/arm.tscn" id="3_iq7d8"]
+[ext_resource type="Texture2D" uid="uid://bymjod0vf7oml" path="res://spritz/gBot_pieces.webp" id="3_tpinn"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rq613"]
+height = 42.0
 
 [node name="hilation" type="CharacterBody2D"]
 texture_filter = 1
 script = ExtResource("1_5818b")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(16, 16)
-texture = ExtResource("1_bgksn")
+[node name="arm_l" parent="." instance=ExtResource("3_iq7d8")]
+position = Vector2(7, -2)
+
+[node name="torso" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_tpinn")
+region_enabled = true
+region_rect = Rect2(347.59, 15.8974, 171.487, 327.969)
+
+[node name="arm_r" parent="." instance=ExtResource("3_iq7d8")]
+position = Vector2(-9, -2)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 4)
+shape = SubResource("CapsuleShape2D_rq613")
