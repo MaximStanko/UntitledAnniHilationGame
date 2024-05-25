@@ -1,9 +1,17 @@
 extends Node2D
 
 var VELOCITY_THERSHOLD = 10
+
+var body_part
 var is_flying = true
 var friction = 0.2
 var velocity = Vector2.ZERO
+
+func init(part, hilation):
+	self.body_part = part
+	self.add_child(part.get_node("Sprite2D").duplicate())
+	self.position = hilation.position+part.position
+	self.add_to_group("dropped_parts")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

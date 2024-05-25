@@ -33,3 +33,4 @@ position = Vector2(413, 208)
 
 [connection signal="timeout" from="GameManager/dmg_timer" to="GameManager" method="_on_dmg_timer_timeout"]
 [connection signal="part_detached" from="hilation" to="GameManager" method="_on_hilation_part_detached"]
+[connection signal="attached_part" from="Anni" to="GameManager" method="_on_anni_attached_part"]

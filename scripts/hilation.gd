@@ -41,4 +41,9 @@ func on_hit():
 	var part = self.attached_parts.pop_front()
 	if part:
 		part.detach()
-		self.part_detached.emit()
+		self.part_detached.emit(part)
+
+func attach(dropped_part):
+	var part = dropped_part.body_part
+	part.attach()
+	self.attached_parts.append(part)

@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal attached_part
+
 # Movement speed in pixels per second.
 @export var walk_speed: float = 300.0
 @export var dash_speed: float = 900.0
@@ -7,7 +9,8 @@ extends CharacterBody2D
 @export var dash_influence_factor: float = 0.08
 @export var dash_enemy_pushback: float = 200.0
 
-
+@onready var hilation = %hilation
+var carried_part
 var dashing = false
 var dash_dir: Vector2
 var last_active_dir = Vector2.ZERO
@@ -23,7 +26,7 @@ func dash() -> void:
 func vector_is_zero(v: Vector2) -> bool:
 	return abs(v.x) < 0.01 and abs(v.y) < 0.01
 
-func _physics_process(delta) -> void:
+func _physics_process(_delta) -> void:
 	dash()
 	
 	var velo = Vector2(
@@ -45,6 +48,24 @@ func _physics_process(delta) -> void:
 		self.velocity = velo * walk_speed
 	
 	move_and_slide()
+	
+	if self.carried_part:
+		self.carried_part.position = self.position
+		self.carried_part.rotation = PI/2
+		self.carried_part.scale = Vector2(0.5, 0.5)
 
 func on_hit():
 	HUD.update_health(-20)
+
+
+func _on_area_2d_area_entered(area):
+	var node = area.get_parent()
+	if not self.carried_part and "dropped_parts" in node.get_groups():
+		self.carried_part = node
+		area.get_node("CollisionShape2D").set_deferred("disabled", true)
+
+
+func _on_area_2d_body_entered(body):
+	if body == hilation and self.carried_part:
+		attached_part.emit(carried_part)
+		self.carried_part = null

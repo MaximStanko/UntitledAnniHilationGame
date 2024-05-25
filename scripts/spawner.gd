@@ -27,5 +27,5 @@ func spawn():
 		get_window().add_child(instance)
 		spawn_new = true
 
-func _process(delta):
+func _process(_delta):
 	spawn()
