@@ -6,6 +6,7 @@ const group_name = "enemy"
 @export var enemy_pushback = 300
 var hilation
 var anni
+var game_manager
 
 @export var stepback_duration = 0.2
 @export var retreat_slow = 0.5
@@ -16,6 +17,7 @@ var anni
 
 @onready var attack_cooldown_timer = $AttackCooldown
 @onready var item_object = preload("res://scenes/item.tscn")
+@onready var bat_1 = $bat_1
 
 var player
 var damage_slow = 1
@@ -45,7 +47,6 @@ func vector_is_zero(v: Vector2) -> bool:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	if has_died:
-		# handle death animation
 		return
 	lowest_distance = INF
 	nearest_enemy = self
@@ -55,8 +56,8 @@ func _physics_process(delta):
 			if distance < lowest_distance:
 				lowest_distance = distance
 				nearest_enemy = member
-	
-	if len(hilation.attached_parts) != 0 and (hilation.position - position).length() < (anni.position - position).length():
+		
+	if (hilation.position - position).length() < (anni.position - position).length():
 		player = hilation
 	else:
 		player = anni
@@ -85,11 +86,16 @@ func _physics_process(delta):
 		velocity = player_knockback
 		player_knockback *= 0.8
 	
+	if velocity.x <= 0:
+		bat_1.flip_h = false
+	else:
+		bat_1.flip_h = true
+	
 	move_and_slide()
 
 func _on_player_detector_body_entered(body):
 	if body==anni or body==hilation:
-		if can_attack:
+		if can_attack and not has_died:
 			can_attack = false
 			body.on_hit()
 			attack_cooldown_timer.start()
@@ -108,6 +114,8 @@ func take_hit(damage):
 			var item_instance = item_object.instantiate()
 			item_instance.position = position
 			get_parent().add_child(item_instance)
+		game_manager.enemy_died()
+		bat_1.play("death")
 		return
 	damage_slow = 0.7
 	await get_tree().create_timer(damage_slow_duration).timeout
@@ -122,3 +130,7 @@ func _on_timer_player_hit_timeout():
 func on_hit(dmg, knockback):
 	take_hit(dmg)
 	player_knockback = (position - hilation.position).normalized() * knockback
+
+func _on_bat_1_animation_finished():
+	if bat_1.animation == "death":
+		queue_free()

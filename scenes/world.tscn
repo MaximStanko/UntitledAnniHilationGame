@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://ckldosw1w6u5q" path="res://spritz/friedhof.png" id="7_ilxja"]
 [ext_resource type="PackedScene" uid="uid://ccfe3c1vfyuyv" path="res://scenes/test.tscn" id="7_no6ky"]
 [ext_resource type="Texture2D" uid="uid://b3fiohgr4ehaq" path="res://spritz/boden.png" id="8_lygf6"]
-[ext_resource type="PackedScene" uid="uid://cxq21b56v030f" path="res://scenes/item.tscn" id="10_gmp2c"]
+[ext_resource type="PackedScene" path="res://scenes/item.tscn" id="10_gmp2c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v5mm3"]
 texture = ExtResource("7_ilxja")
@@ -614,6 +614,9 @@ position = Vector2(64, 268)
 
 [node name="Item4" parent="." instance=ExtResource("10_gmp2c")]
 position = Vector2(-38, 262)
+
+[node name="Spawner2" parent="." groups=["spawner"] instance=ExtResource("4_pv2u7")]
+position = Vector2(243, 435)
 
 [connection signal="timeout" from="GameManager/dmg_timer" to="GameManager" method="_on_dmg_timer_timeout"]
 [connection signal="part_detached" from="hilation" to="GameManager" method="_on_hilation_part_detached"]

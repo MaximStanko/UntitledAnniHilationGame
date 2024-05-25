@@ -3,18 +3,21 @@ extends CanvasLayer
 @onready var survive_time = $survive_time
 @onready var time_display = $time_display
 @onready var score_display = $score_display
+@onready var wave_display = $waves/wave_display
+
 #@onready var health_display = $health_display
 
 @onready var game_over = $game_over
 
-@export var health = 240
+@export var health = 200
 
 var time = 0
 var score = 0
 var anni_hp = health
-var max_bar = 6
-var curr_bar = max_bar
-var stepper = anni_hp / max_bar
+
+# neue Lebensleiste
+@onready var bar_container = $new_healthbar/Control
+var bar_size = 165
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -32,27 +35,30 @@ func update_score(change):
 func update_health(change):
 	anni_hp += change
 	
-	if anni_hp < (curr_bar-1)*stepper:
-		get_node("health_bar/"+str(curr_bar)+"bars").visible = false
-		curr_bar -= 1
-		
-	
 #	health_display.text = "Health: " + str(anni_hp)
 	if (anni_hp <= 0):
 		Engine.time_scale = 0
 		game_over.visible = true
-		
+		bar_container.size.x = 0
+	else:
+		# neue Lebensleiste
+		bar_container.size.x = bar_size * anni_hp/health
 
+func update_wave(x):
+	wave_display.text = "Wave " + str(x)
+
+func wave_pause():
+	wave_display.text = "Pause"
 
 # respawn button
 func _on_button_pressed():
 	Engine.time_scale = 1
 	game_over.visible = false
-	for i in range(1,max_bar+1):
-		get_node("health_bar/"+str(i)+"bars").visible = true
-	curr_bar = max_bar
+	
 	time = 0
 	time_display.text = "Zeit: " + str(time) + "s"
 	update_score(-score)
 	update_health(health)
+	for enemy in get_tree().get_nodes_in_group("enemy"):
+		enemy.queue_free()
 	get_tree().reload_current_scene()
