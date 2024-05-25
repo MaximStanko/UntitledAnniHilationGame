@@ -20,7 +20,7 @@ unique_name_in_owner = true
 metadata/type = "hilation"
 
 [node name="Enemy_Prototype" parent="." instance=ExtResource("2_7n4gb")]
-position = Vector2(298, 207)
+position = Vector2(136, 251)
 
 [node name="Anni" parent="." instance=ExtResource("3_f8ire")]
 unique_name_in_owner = true
@@ -33,6 +33,15 @@ enemy_file_location = "res://scenes/test.tscn"
 
 [node name="Projectile" parent="." instance=ExtResource("5_gxjrv")]
 position = Vector2(413, 208)
+
+[node name="Enemy_Prototype2" parent="." instance=ExtResource("2_7n4gb")]
+position = Vector2(112, 251)
+
+[node name="Enemy_Prototype3" parent="." instance=ExtResource("2_7n4gb")]
+position = Vector2(153, 253)
+
+[node name="Enemy_Prototype4" parent="." instance=ExtResource("2_7n4gb")]
+position = Vector2(94, 256)
 
 [connection signal="timeout" from="GameManager/dmg_timer" to="GameManager" method="_on_dmg_timer_timeout"]
 [connection signal="hit" from="Enemy_Prototype" to="GameManager" method="_on_enemy_prototype_hit"]
