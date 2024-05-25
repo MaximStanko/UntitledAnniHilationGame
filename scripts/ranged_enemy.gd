@@ -55,7 +55,7 @@ func _physics_process(delta):
 		# handle death animation
 		return
 	
-	if (hilation.position - position).length() < (anni.position - position).length():
+	if len(hilation.attached_parts) != 0 and (hilation.position - position).length() < (anni.position - position).length():
 		player = hilation
 	else:
 		player = anni
@@ -96,6 +96,7 @@ func _physics_process(delta):
 	
 	if distance <= shoot_dist and can_attack:
 		can_attack = false
+		
 		var projectile_instance = projectile.instantiate()
 		get_parent().add_child(projectile_instance)
 		projectile_instance.distance = shoot_dist
@@ -104,7 +105,9 @@ func _physics_process(delta):
 		projectile_instance.position = position
 		projectile_instance.direction = dir
 		projectile_instance.init_pos = position
-		print("shoot")
+		projectile_instance.anni = anni
+		projectile_instance.hilation = hilation
+		
 		attack_cooldown_timer.start()
 		
 	

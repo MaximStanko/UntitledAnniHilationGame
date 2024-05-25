@@ -20,10 +20,10 @@ func spawn():
 		spawned += 1
 		await get_tree().create_timer(spawn_interval).timeout
 		var instance = enemy.instantiate()
-		instance.set("anni", anni)
-		instance.set("hilation", hilation)
 		instance.position = position + Vector2(1,1) * spawned * 10
 		get_window().add_child(instance)
+		instance.anni = anni
+		instance.hilation = hilation
 		spawn_new = true
 
 func _process(_delta):
