@@ -1,11 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://lfqkcqqiah58"]
+[gd_scene load_steps=14 format=3 uid="uid://lfqkcqqiah58"]
 
 [ext_resource type="PackedScene" uid="uid://ccxn50scwcqdc" path="res://scenes/hilation.tscn" id="1_u8nxa"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_y3ec5"]
 [ext_resource type="PackedScene" uid="uid://ickdijbnfl8j" path="res://scenes/anni.tscn" id="3_f8ire"]
 [ext_resource type="PackedScene" uid="uid://b6ld2srnl04e7" path="res://scenes/spawner.tscn" id="4_pv2u7"]
 [ext_resource type="PackedScene" uid="uid://celk752lhge8i" path="res://scenes/projectile.tscn" id="5_gxjrv"]
+[ext_resource type="Script" path="res://scenes/cam.gd" id="6_qdbh0"]
 [ext_resource type="Texture2D" uid="uid://ckldosw1w6u5q" path="res://spritz/friedhof.png" id="7_ilxja"]
+[ext_resource type="PackedScene" uid="uid://ccfe3c1vfyuyv" path="res://scenes/test.tscn" id="7_no6ky"]
 [ext_resource type="Texture2D" uid="uid://b3fiohgr4ehaq" path="res://spritz/boden.png" id="8_lygf6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v5mm3"]
@@ -575,6 +577,24 @@ shape = SubResource("WorldBoundaryShape2D_klwfk")
 position = Vector2(243, 1006)
 rotation = 3.14159
 shape = SubResource("WorldBoundaryShape2D_klwfk")
+
+[node name="topleft" type="Node2D" parent="."]
+position = Vector2(-752, -547)
+
+[node name="bottomright" type="Node2D" parent="."]
+position = Vector2(1386, 721)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+script = ExtResource("6_qdbh0")
+
+[node name="Test" parent="." instance=ExtResource("7_no6ky")]
+position = Vector2(-734, -531)
+
+[node name="Test2" parent="." instance=ExtResource("7_no6ky")]
+position = Vector2(1370, 710)
 
 [connection signal="timeout" from="GameManager/dmg_timer" to="GameManager" method="_on_dmg_timer_timeout"]
 [connection signal="part_detached" from="hilation" to="GameManager" method="_on_hilation_part_detached"]
