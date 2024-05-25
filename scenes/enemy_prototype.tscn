@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://dm61s3jxeuyaq"]
 
 [ext_resource type="Script" path="res://scripts/enemy_prototype.gd" id="1_18nj7"]
-[ext_resource type="Texture2D" uid="uid://ctlowx4gsurka" path="res://spritz/schnabeltier - Kopie.png" id="1_afl5p"]
+[ext_resource type="Texture2D" uid="uid://c1vcf7mut77v0" path="res://spritz/schnabeltier - Kopie.png" id="1_afl5p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jrmiq"]
 size = Vector2(6, 12)
@@ -99,12 +99,7 @@ script = SubResource("GDScript_gteii")
 position = Vector2(1, -7)
 shape = SubResource("RectangleShape2D_2mnqc")
 
-[node name="TimerEnemyHit" type="Timer" parent="."]
-wait_time = 3.0
-
-[node name="TimerPlayerHit" type="Timer" parent="."]
-wait_time = 0.2
+[node name="AttackCooldown" type="Timer" parent="."]
 
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
-[connection signal="timeout" from="TimerEnemyHit" to="." method="_on_timer_enemy_hit_timeout"]
-[connection signal="timeout" from="TimerPlayerHit" to="." method="_on_timer_player_hit_timeout"]
+[connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]
