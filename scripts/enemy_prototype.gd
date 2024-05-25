@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-signal hit
+signal hit(body)
 
 const SPEED = 4000
 var damage_slow = 1
@@ -13,6 +13,8 @@ var hp = 100
 @onready var timer_player_hit = $TimerPlayerHit
 
 var player
+var lastVel
+var step_back = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
@@ -21,11 +23,18 @@ func _physics_process(delta):
 	else:
 		player = anni
 	var dir = player.position - position
-	velocity = dir.normalized() * SPEED * delta * damage_slow
+	lastVel = dir
+	if (step_back):
+		velocity = -dir.normalized() * SPEED * delta * 2
+	else:
+		velocity = dir.normalized() * SPEED * delta * damage_slow
 	move_and_slide()
 
 func _on_player_detector_body_entered(body):
-	hit.emit(body)
+	if (body == player):
+		hit.emit(body)
+		step_back = true
+		timer_player_hit.start()
 
 func take_hit(damage):
 	print("debug: enemy hit")
@@ -36,3 +45,7 @@ func take_hit(damage):
 
 func _on_timer_enemy_hit_timeout():
 	damage_slow = 1
+
+
+func _on_timer_player_hit_timeout():
+	step_back = false
