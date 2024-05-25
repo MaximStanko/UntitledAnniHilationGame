@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var STRIKE_DURATION = 0.5
+@export var STRIKE_DURATION = 0.25
 @export var STRIKE_ROTATION_FINAL = 0.75 * PI
 
 var is_attached = true
@@ -26,9 +26,10 @@ func _process(delta):
 				body.on_hit()
 				already_hit.append(body)
 		strike_progress += delta / self.STRIKE_DURATION
-		$Sprite2D.rotation = interpolate_back_forth(
-			0, self.STRIKE_ROTATION_FINAL, strike_progress
-		)
+		#$Sprite2D.rotation = interpolate_back_forth(
+			#0, self.STRIKE_ROTATION_FINAL, strike_progress
+		#)
+		$Sprite2D.rotation = sin(self.strike_progress*PI)*self.STRIKE_ROTATION_FINAL
 		if strike_progress >= 1:
 			is_striking = false
 			$Sprite2D.rotation = 0
