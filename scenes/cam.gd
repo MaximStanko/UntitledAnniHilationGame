@@ -25,4 +25,3 @@ func _process(delta):
 	
 	intended_size = (Vector2.ONE * margin) + abs(anni.position - hilation.position)
 	zoom = Vector2.ONE * min(max_scaler, viewport_size.x / intended_size.x, viewport_size.y / intended_size.y)
-	print(zoom)
