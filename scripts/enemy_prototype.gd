@@ -8,6 +8,7 @@ const group_name = "enemy"
 @export var enemy_pushback = 300
 var hilation
 var anni
+var game_manager
 
 @export var stepback_duration = 0.2
 @export var retreat_slow = 0.5
@@ -16,6 +17,7 @@ var anni
 @export var start_hp = 100
 
 @onready var attack_cooldown_timer = $AttackCooldown
+@onready var bat_1 = $bat_1
 
 var player
 var damage_slow = 1
@@ -39,7 +41,6 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	if has_died:
-		# handle death animation
 		return
 	lowest_distance = INF
 	nearest_enemy = self
@@ -75,11 +76,16 @@ func _physics_process(delta):
 	velocity += player_pushback
 	player_pushback *= 0.2 
 	
+	if velocity.x <= 0:
+		bat_1.flip_h = false
+	else:
+		bat_1.flip_h = true
+	
 	move_and_slide()
 
 func _on_player_detector_body_entered(body):
 	if body==anni or body==hilation:
-		if can_attack:
+		if can_attack and not has_died:
 			can_attack = false
 			body.on_hit()
 			attack_cooldown_timer.start()
@@ -92,6 +98,8 @@ func take_hit(damage):
 	hp -= damage
 	if hp <= 0:
 		has_died = true
+		game_manager.enemy_died()
+		bat_1.play("death")
 		return
 	damage_slow = 0.7
 	await get_tree().create_timer(damage_slow_duration).timeout
@@ -105,3 +113,7 @@ func _on_timer_player_hit_timeout():
 
 func on_hit():
 	take_hit(50)
+
+func _on_bat_1_animation_finished():
+	if bat_1.animation == "death":
+		queue_free()

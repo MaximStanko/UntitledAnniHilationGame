@@ -3,6 +3,8 @@ extends CanvasLayer
 @onready var survive_time = $survive_time
 @onready var time_display = $time_display
 @onready var score_display = $score_display
+@onready var wave_display = $waves/wave_display
+
 #@onready var health_display = $health_display
 
 @onready var game_over = $game_over
@@ -16,8 +18,6 @@ var anni_hp = health
 # neue Lebensleiste
 @onready var bar_container = $new_healthbar/Control
 var bar_size = 165
-
-var wave = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -43,7 +43,12 @@ func update_health(change):
 	else:
 		# neue Lebensleiste
 		bar_container.size.x = bar_size * anni_hp/health
-		print(bar_container.size.x)
+
+func update_wave(x):
+	wave_display.text = "Wave " + str(x)
+
+func wave_pause():
+	wave_display.text = "Pause"
 
 # respawn button
 func _on_button_pressed():
