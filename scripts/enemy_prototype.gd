@@ -49,7 +49,7 @@ func _physics_process(delta):
 			if distance < lowest_distance:
 				lowest_distance = distance
 				nearest_enemy = member
-	
+		
 	if (hilation.position - position).length() < (anni.position - position).length():
 		player = hilation
 	else:

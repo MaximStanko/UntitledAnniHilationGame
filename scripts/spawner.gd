@@ -25,7 +25,8 @@ func spawn():
 		instance.set("hilation", hilation)
 		instance.position = position + Vector2(1,1) * spawned * 10
 		get_window().add_child(instance)
+		instance.add_to_group("enemy")
 		spawn_new = true
 
-func _process(delta):
+func _process(_delta):
 	spawn()
