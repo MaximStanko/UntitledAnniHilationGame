@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://ickdijbnfl8j"]
 
 [ext_resource type="Script" path="res://scripts/annimovement.gd" id="1_i21sx"]
-[ext_resource type="Texture2D" uid="uid://c70o2fhcrbb4h" path="res://spritz/schnabeltier - Kopie.png" id="2_n5nha"]
+[ext_resource type="Texture2D" uid="uid://c1vcf7mut77v0" path="res://spritz/schnabeltier - Kopie.png" id="2_n5nha"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yr0he"]
 atlas = ExtResource("2_n5nha")

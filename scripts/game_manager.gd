@@ -9,7 +9,6 @@ var let_dmg = true
 
 func _on_enemy_prototype_hit(body):
 	if (body == anni):
-		print("anni")
 		if (let_dmg):
 			anni.on_hit(20)
 			let_dmg = false

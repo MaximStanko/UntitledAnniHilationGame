@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d20jmxweobex2"
-path="res://.godot/imported/gBot_pieces.webp-a135f7802738d597a59e20cf79596a84.ctex"
+uid="uid://b6wr7evvwmvcj"
+path="res://.godot/imported/Beine_Ghul.png-7e9243dc21486797ee354c9cc61566cc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://spritz/gBot_pieces.webp"
-dest_files=["res://.godot/imported/gBot_pieces.webp-a135f7802738d597a59e20cf79596a84.ctex"]
+source_file="res://spritz/Beine_Ghul.png"
+dest_files=["res://.godot/imported/Beine_Ghul.png-7e9243dc21486797ee354c9cc61566cc.ctex"]
 
 [params]
 
