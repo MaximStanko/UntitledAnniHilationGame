@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdsmgaaphumhw"
-path="res://.godot/imported/Arme_Ghul.png-91ff0ce2d274f62a89d359e74495eddd.ctex"
+uid="uid://cdnfcobuo8uw7"
+path="res://.godot/imported/Beine_Ghul.png-7e9243dc21486797ee354c9cc61566cc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://spritz/Arme_Ghul.png"
-dest_files=["res://.godot/imported/Arme_Ghul.png-91ff0ce2d274f62a89d359e74495eddd.ctex"]
+source_file="res://spritz/Beine_Ghul.png"
+dest_files=["res://.godot/imported/Beine_Ghul.png-7e9243dc21486797ee354c9cc61566cc.ctex"]
 
 [params]
 

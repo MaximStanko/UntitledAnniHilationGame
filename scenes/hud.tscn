@@ -21,6 +21,14 @@ theme_override_font_sizes/font_size = 15
 text = "Zeit: 0s
 "
 
+[node name="health_display" type="Label" parent="."]
+offset_left = 3.0
+offset_top = 366.0
+offset_right = 184.0
+offset_bottom = 389.0
+theme_override_font_sizes/font_size = 15
+text = "Health: 200"
+
 [node name="survive_time" type="Timer" parent="."]
 
 [connection signal="timeout" from="survive_time" to="." method="_on_survive_time_timeout"]

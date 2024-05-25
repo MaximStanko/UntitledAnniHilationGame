@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xyi302v5y662"
-path="res://.godot/imported/Beine_Ghul.png-7e9243dc21486797ee354c9cc61566cc.ctex"
+uid="uid://c7ttbsiwu1rgc"
+path="res://.godot/imported/torso.png-befebe581dde85d5b79894b8c4a6632a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://spritz/Beine_Ghul.png"
-dest_files=["res://.godot/imported/Beine_Ghul.png-7e9243dc21486797ee354c9cc61566cc.ctex"]
+source_file="res://spritz/torso.png"
+dest_files=["res://.godot/imported/torso.png-befebe581dde85d5b79894b8c4a6632a.ctex"]
 
 [params]
 
