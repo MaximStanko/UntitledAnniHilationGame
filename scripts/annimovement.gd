@@ -39,5 +39,6 @@ func _physics_process(delta) -> void:
 	
 	move_and_slide()
 
-func on_hit(src):
-	HUD.update_health(-src)
+func on_hit():
+	print("anni hit")
+	#HUD.update_health(-src)

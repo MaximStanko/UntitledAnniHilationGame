@@ -5,10 +5,10 @@ signal hit(body)
 const SPEED = 4000
 var damage_slow = 1
 var hp = 100
+var hilation
+var anni
 
 # Reference muss geändert werden
-@onready var hilation = %hilation
-@onready var anni = %Anni
 @onready var timer_enemy_hit = $TimerEnemyHit
 @onready var timer_player_hit = $TimerPlayerHit
 
@@ -31,11 +31,10 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _on_player_detector_body_entered(body):
-	var type = body.get_meta("type")
-	if (type == "anni" or type == "hilation"):
-		hit.emit(body)
-		step_back = true
-		timer_player_hit.start()
+	if body==hilation:
+		hilation.on_hit()
+	if body == anni:
+		anni.on_hit()
 
 func take_hit(damage):
 	print("debug: enemy hit")

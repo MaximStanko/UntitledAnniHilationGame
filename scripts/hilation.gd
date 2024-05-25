@@ -23,5 +23,6 @@ func _physics_process(delta):
 		$arm_l.strike()
 
 func on_hit():
-	var part = attached_parts.pop_front()
-	part.detach()
+	print("hilation hit")
+	#var part = attached_parts.pop_front()
+	#part.detach()
