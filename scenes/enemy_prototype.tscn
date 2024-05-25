@@ -99,12 +99,7 @@ script = SubResource("GDScript_gteii")
 position = Vector2(1, -7)
 shape = SubResource("RectangleShape2D_2mnqc")
 
-[node name="TimerEnemyHit" type="Timer" parent="."]
-wait_time = 3.0
-
-[node name="TimerPlayerHit" type="Timer" parent="."]
-wait_time = 0.2
+[node name="AttackCooldown" type="Timer" parent="."]
 
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
-[connection signal="timeout" from="TimerEnemyHit" to="." method="_on_timer_enemy_hit_timeout"]
-[connection signal="timeout" from="TimerPlayerHit" to="." method="_on_timer_player_hit_timeout"]
+[connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]
