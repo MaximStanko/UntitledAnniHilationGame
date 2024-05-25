@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c70o2fhcrbb4h"
-path="res://.godot/imported/schnabeltier - Kopie.png-19046e9b42dadf46d73cd9d4fbd0f8d2.ctex"
+uid="uid://bymjod0vf7oml"
+path="res://.godot/imported/gBot_pieces.webp-a135f7802738d597a59e20cf79596a84.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://spritz/schnabeltier - Kopie.png"
-dest_files=["res://.godot/imported/schnabeltier - Kopie.png-19046e9b42dadf46d73cd9d4fbd0f8d2.ctex"]
+source_file="res://spritz/gBot_pieces.webp"
+dest_files=["res://.godot/imported/gBot_pieces.webp-a135f7802738d597a59e20cf79596a84.ctex"]
 
 [params]
 

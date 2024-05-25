@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7ttbsiwu1rgc"
-path="res://.godot/imported/torso.png-befebe581dde85d5b79894b8c4a6632a.ctex"
+uid="uid://cxn0ka6fjphal"
+path="res://.godot/imported/Torso_Ghoul.png-652337894fa88963de1c76b2705ff025.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://spritz/torso.png"
-dest_files=["res://.godot/imported/torso.png-befebe581dde85d5b79894b8c4a6632a.ctex"]
+source_file="res://spritz/Torso_Ghoul.png"
+dest_files=["res://.godot/imported/Torso_Ghoul.png-652337894fa88963de1c76b2705ff025.ctex"]
 
 [params]
 
