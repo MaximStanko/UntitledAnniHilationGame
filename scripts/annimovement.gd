@@ -37,4 +37,3 @@ func _physics_process(delta) -> void:
 		self.velocity = velo * walk_speed
 	
 	move_and_slide()
-
