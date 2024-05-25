@@ -21,4 +21,4 @@ func _on_anni_attached_part(dropped_part):
 
 func _on_anni_dropped_part(dropped_part):
 	dropped_part.set_physics(true)
-	dropped_part.velocity = anni.velocity.normalized() * anni.THROW_SPEED
+	dropped_part.apply_impulse(anni.velocity.normalized() * anni.THROW_SPEED)

@@ -12,7 +12,6 @@ var spawn_new = true
 var spawned = 0
 
 func _ready():
-	print(hilation.get_node("hitbox"))
 	pass
 
 func spawn():

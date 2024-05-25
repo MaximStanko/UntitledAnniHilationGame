@@ -3,7 +3,7 @@ extends Node2D
 @export var STRIKE_DURATION = 0.25
 @export var STRIKE_ROTATION_FINAL = 0.75 * PI
 
-var attack_damage = 40
+var attack_damage = 100
 var knockback = 400
 
 var is_attached = true

@@ -105,6 +105,8 @@ script/source = "extends Area2D
 radius = 7.25
 
 [node name="Enemy_Prototype" type="CharacterBody2D" groups=["enemy"]]
+collision_layer = 4
+collision_mask = 0
 script = ExtResource("1_18nj7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -129,6 +131,8 @@ sprite_frames = SubResource("SpriteFrames_31kxc")
 autoplay = "default"
 
 [node name="PlayerDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
 script = SubResource("GDScript_gteii")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]

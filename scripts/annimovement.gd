@@ -65,22 +65,20 @@ func _physics_process(_delta) -> void:
 		self.carried_part.scale = Vector2(0.8, 0.8)
 	
 	# drop carried part
-	if Input.is_action_pressed("anni_drop") and self.carried_part:
-		dropped_part.emit(self.carried_part)
-		self.carried_part = null
+	#if Input.is_action_pressed("anni_drop") and self.carried_part:
+		#dropped_part.emit(self.carried_part)
+		#self.carried_part = null
 
 func on_hit():
 	HUD.update_health(-20)
 
 
-func _on_area_2d_area_entered(area):
-	var node = area.get_parent()
-	if not self.carried_part and "dropped_parts" in node.get_groups() and not node.is_flying():
-		self.carried_part = node
-		node.set_physics(false)
-
-
 func _on_area_2d_body_entered(body):
-	if body == hilation and self.carried_part:
-		attached_part.emit(carried_part)
-		self.carried_part = null
+	if body == hilation:
+		if self.carried_part:
+			attached_part.emit(carried_part)
+			self.carried_part = null
+	elif "dropped_parts" in body.get_groups():
+		if not self.carried_part and not body.is_flying():
+			self.carried_part = body
+			body.set_physics(false)

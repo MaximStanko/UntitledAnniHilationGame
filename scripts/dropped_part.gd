@@ -1,8 +1,8 @@
-extends Node2D
+extends RigidBody2D
 
 var VELOCITY_THERSHOLD = 10
-var SPEED_RANGE = Vector2(1200, 1400)
-var FRICTION = 0.15
+var SPEED_RANGE = Vector2(500, 800)
+var DAMP = 3.0
 
 var body_part
 var velocity = Vector2.ZERO
@@ -19,17 +19,15 @@ func init(part, hilation):
 func _ready():
 	var speed = randi_range(self.SPEED_RANGE.x, self.SPEED_RANGE.y)
 	var angle = randf_range(0, 2*PI)
-	self.velocity = Vector2(speed, 0).rotated(angle)
+	apply_impulse(Vector2(speed, 0).rotated(angle))
+	self.linear_damp = self.DAMP
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	self.position += delta * self.velocity
-	self.velocity *= (1.0-self.FRICTION)
-	if not self.is_flying():
-		self.velocity = Vector2.ZERO
+	pass
 
 func is_flying():
 	return self.velocity.length() > self.VELOCITY_THERSHOLD
 
 func set_physics(has_collision):
-	$Area2D/CollisionShape2D.set_deferred("disabled", not has_collision)
+	$CollisionShape2D.set_deferred("disabled", not has_collision)

@@ -17,6 +17,8 @@ region_enabled = true
 region_rect = Rect2(31.7233, 23.2461, 102.892, 336.544)
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-25, 13.5)
