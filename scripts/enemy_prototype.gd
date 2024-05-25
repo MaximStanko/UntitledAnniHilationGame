@@ -16,6 +16,9 @@ var player
 var lastVel
 var step_back = false
 
+func _ready():
+	get_tree().get_root().find_node("GameManager", true, false).connect("hit", self, "_on_enemy_prototype_hit()")
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	if (hilation.position - position).length() < (anni.position - position).length():
