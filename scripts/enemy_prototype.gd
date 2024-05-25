@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal hit
+
 const SPEED = 4000
 var damage_slow = 1
 var hp = 100
@@ -22,16 +24,8 @@ func _physics_process(delta):
 	velocity = dir.normalized() * SPEED * delta * damage_slow
 	move_and_slide()
 
-var store_body
-var store_modulate
-
 func _on_player_detector_body_entered(body):
-	if body == player:
-		store_body = body
-		store_modulate = body.get_node("AnimatedSprite2D").modulate
-		body.get_node("AnimatedSprite2D").modulate = Color(1,0,0)
-		timer_player_hit.start()
-		
+	hit.emit(body)
 
 func take_hit(damage):
 	print("debug: enemy hit")
@@ -42,7 +36,3 @@ func take_hit(damage):
 
 func _on_timer_enemy_hit_timeout():
 	damage_slow = 1
-
-
-func _on_timer_player_hit_timeout():
-	store_body.get_node("AnimatedSprite2D").modulate = store_modulate

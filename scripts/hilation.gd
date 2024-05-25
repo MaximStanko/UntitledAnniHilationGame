@@ -1,7 +1,5 @@
 extends CharacterBody2D
 
-signal dropped_part
-
 # Movement speed in pixels per second.
 @export var speed = 500
 @export var STRIKE_R_DURATION = 2.0
@@ -20,11 +18,10 @@ func _physics_process(delta):
 	
 	if Input.is_action_pressed("hilation_strike_r"):
 		$arm_r.strike()
-	
+
 	if Input.is_action_pressed("hilation_strike_l"):
 		$arm_l.strike()
 
-
-func _on_area_2d_body_entered(body):
+func on_hit():
 	var part = attached_parts.pop_front()
-	dropped_part.emit(part)
+	part.detach()

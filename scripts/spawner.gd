@@ -17,6 +17,7 @@ func spawn():
 		spawned += 1
 		await get_tree().create_timer(spawn_interval).timeout
 		var instance = enemy.instantiate()
+		instance.hit.connect
 		instance.position = position + Vector2(1,1) * spawned * 10
 		get_window().add_child(instance)
 		spawn_new = true

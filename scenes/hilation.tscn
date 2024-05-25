@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/hilation.gd" id="1_5818b"]
 [ext_resource type="PackedScene" uid="uid://d1fcoqil04rns" path="res://scenes/arm.tscn" id="3_iq7d8"]
-[ext_resource type="Texture2D" uid="uid://bu3k1as8veql8" path="res://spritz/gBot_pieces.webp" id="3_tpinn"]
+[ext_resource type="Texture2D" uid="uid://bymjod0vf7oml" path="res://spritz/gBot_pieces.webp" id="3_tpinn"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rq613"]
 height = 42.0
