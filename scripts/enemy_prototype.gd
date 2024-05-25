@@ -22,6 +22,7 @@ var distance
 var pushback_vector
 var lastVel
 var step_back = false
+var player_pushback = Vector2.ZERO
 
 func _ready():
 	add_to_group(group_name)
@@ -49,6 +50,9 @@ func _physics_process(delta):
 	
 	pushback_vector = (enemy_pushback * Vector2(1,1)) / (position - nearest_enemy.position)
 	velocity += pushback_vector
+	
+	velocity += player_pushback
+	player_pushback *= 0.2 
 	
 	move_and_slide()
 
