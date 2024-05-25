@@ -49,3 +49,6 @@ func _on_timer_enemy_hit_timeout():
 
 func _on_timer_player_hit_timeout():
 	step_back = false
+
+func on_hit():
+	print("enemy was hit")
