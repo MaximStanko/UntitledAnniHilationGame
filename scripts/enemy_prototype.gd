@@ -31,7 +31,8 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _on_player_detector_body_entered(body):
-	if (body == player):
+	var type = body.get_meta("type")
+	if (type == "anni" or type == "hilation"):
 		hit.emit(body)
 		step_back = true
 		timer_player_hit.start()
