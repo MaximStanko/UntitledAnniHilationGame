@@ -552,7 +552,7 @@ metadata/type = "anni"
 [node name="Spawner" parent="." instance=ExtResource("4_pv2u7")]
 visible = false
 position = Vector2(480, 244)
-enemy_file_location = "res://scenes/ranged_enemy.tscn"
+enemy_file_location = "res://scenes/enemy_prototype.tscn"
 
 [node name="Projectile" parent="." instance=ExtResource("5_gxjrv")]
 visible = false

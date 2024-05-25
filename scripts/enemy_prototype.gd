@@ -12,8 +12,10 @@ var anni
 @export var damage_slow_duration = 0.2
 @export var attack_cooldown = 0.7
 @export var start_hp = 100
+@export var item_drop_probability = 0.1
 
 @onready var attack_cooldown_timer = $AttackCooldown
+@onready var item_object = preload("res://scenes/item.tscn")
 
 var player
 var damage_slow = 1
@@ -29,6 +31,8 @@ var hp
 var can_attack = true
 var speed_multiplier = 2
 var has_died = false
+
+var rng = RandomNumberGenerator.new()
 
 func _ready():
 	add_to_group(group_name)
@@ -98,6 +102,10 @@ func take_hit(damage):
 	hp -= damage
 	if hp <= 0:
 		has_died = true
+		if rng.randf_range(0, 1) < item_drop_probability:
+			var item_instance = item_object.instantiate()
+			item_instance.position = position
+			get_parent().add_child(item_instance)
 		return
 	damage_slow = 0.7
 	await get_tree().create_timer(damage_slow_duration).timeout

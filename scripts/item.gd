@@ -27,6 +27,6 @@ func _on_area_2d_body_entered(body):
 		return
 	collected = true
 	
-	HUD.update_health(100)
+	HUD.update_health(20)
 	
 	disappear()
