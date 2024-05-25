@@ -2,7 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://ccxn50scwcqdc" path="res://scenes/hilation.tscn" id="1_u8nxa"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_y3ec5"]
-[ext_resource type="PackedScene" uid="uid://dm61s3jxeuyaq" path="res://scenes/enemy_prototype.tscn" id="2_7n4gb"]
 [ext_resource type="PackedScene" uid="uid://ickdijbnfl8j" path="res://scenes/anni.tscn" id="3_f8ire"]
 [ext_resource type="PackedScene" uid="uid://b6ld2srnl04e7" path="res://scenes/spawner.tscn" id="4_pv2u7"]
 [ext_resource type="PackedScene" uid="uid://celk752lhge8i" path="res://scenes/projectile.tscn" id="5_gxjrv"]
@@ -530,9 +529,6 @@ unique_name_in_owner = true
 position = Vector2(-29, 22)
 metadata/type = "hilation"
 
-[node name="Enemy_Prototype" parent="." instance=ExtResource("2_7n4gb")]
-position = Vector2(136, 251)
-
 [node name="Anni" parent="." instance=ExtResource("3_f8ire")]
 unique_name_in_owner = true
 position = Vector2(121, 28)
@@ -581,4 +577,3 @@ rotation = 3.14159
 shape = SubResource("WorldBoundaryShape2D_klwfk")
 
 [connection signal="timeout" from="GameManager/dmg_timer" to="GameManager" method="_on_dmg_timer_timeout"]
-[connection signal="hit" from="Enemy_Prototype" to="GameManager" method="_on_enemy_prototype_hit"]

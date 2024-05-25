@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://c14d4gdn1ybw4"]
+
+[ext_resource type="Script" path="res://scripts/dropped_part.gd" id="1_52cnw"]
+[ext_resource type="Texture2D" uid="uid://d20jmxweobex2" path="res://spritz/gBot_pieces.webp" id="2_fjw4f"]
+
+[node name="dropped_part" type="Node2D"]
+script = ExtResource("1_52cnw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_fjw4f")
+region_enabled = true
+region_rect = Rect2(0, 0, 156.118, 366.601)
