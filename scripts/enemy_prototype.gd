@@ -1,7 +1,5 @@
 extends CharacterBody2D
 
-signal hit(body)
-
 const group_name = "enemy"
 
 @export var SPEED = 4000

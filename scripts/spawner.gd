@@ -7,13 +7,12 @@ extends Node2D
 @export var spawn_interval: float = 4.0
 @export var spawn_amount: int = 5
 
-var enemy = preload("res://scenes/enemy_prototype.tscn")
+var enemy
 var spawn_new = true
 var spawned = 0
 
 func _ready():
-	print(hilation.get_node("hitbox"))
-	pass
+	enemy = load(enemy_file_location)
 
 func spawn():
 	if spawn_new and spawned < spawn_amount:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://lfqkcqqiah58"]
+[gd_scene load_steps=9 format=3 uid="uid://lfqkcqqiah58"]
 
 [ext_resource type="PackedScene" uid="uid://ccxn50scwcqdc" path="res://scenes/hilation.tscn" id="1_u8nxa"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_y3ec5"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://celk752lhge8i" path="res://scenes/projectile.tscn" id="5_gxjrv"]
 [ext_resource type="Script" path="res://scenes/cam.gd" id="6_qdbh0"]
 [ext_resource type="PackedScene" uid="uid://ccfe3c1vfyuyv" path="res://scenes/test.tscn" id="7_no6ky"]
+[ext_resource type="PackedScene" uid="uid://dbtb161o7afx1" path="res://scenes/ranged_enemy.tscn" id="8_13pvx"]
 
 [node name="world" type="Node2D"]
 
@@ -42,7 +43,7 @@ position = Vector2(1386, 721)
 [node name="Camera2D" type="Camera2D" parent="."]
 limit_smoothed = true
 position_smoothing_enabled = true
-position_smoothing_speed = 10.0
+position_smoothing_speed = 15.0
 script = ExtResource("6_qdbh0")
 
 [node name="Test" parent="." instance=ExtResource("7_no6ky")]
@@ -50,5 +51,8 @@ position = Vector2(-734, -531)
 
 [node name="Test2" parent="." instance=ExtResource("7_no6ky")]
 position = Vector2(1370, 710)
+
+[node name="Enemy_Prototype" parent="." instance=ExtResource("8_13pvx")]
+position = Vector2(-311, -103)
 
 [connection signal="timeout" from="GameManager/dmg_timer" to="GameManager" method="_on_dmg_timer_timeout"]
