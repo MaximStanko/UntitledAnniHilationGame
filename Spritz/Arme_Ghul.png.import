@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cdsmgaaphumhw"
-path="res://.godot/imported/Arme_Ghul.png-f7d05d33e498650f60092d7a5a040985.ctex"
+path="res://.godot/imported/Arme_Ghul.png-91ff0ce2d274f62a89d359e74495eddd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Arme_Ghul.png"
-dest_files=["res://.godot/imported/Arme_Ghul.png-f7d05d33e498650f60092d7a5a040985.ctex"]
+source_file="res://spritz/Arme_Ghul.png"
+dest_files=["res://.godot/imported/Arme_Ghul.png-91ff0ce2d274f62a89d359e74495eddd.ctex"]
 
 [params]
 
