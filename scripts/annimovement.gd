@@ -6,18 +6,22 @@ extends CharacterBody2D
 @export var dash_distance: float = 100.0
 @export var dash_influence_factor: float = 0.08
 @export var dash_enemy_pushback: float = 200.0
-
+@export var dash_cooldown: float = 1.0
 
 var dashing = false
+var dash_cooling_down = false
 var dash_dir: Vector2
 var last_active_dir = Vector2.ZERO
 
 func dash() -> void:
-	if Input.is_action_just_pressed("anni_dash") and not dashing:
+	if Input.is_action_just_pressed("anni_dash") and not dash_cooling_down:
 		dashing = true
+		dash_cooling_down = true
 		get_node("CollisionShape2D").disabled = true
 		await get_tree().create_timer(dash_distance / dash_speed).timeout
 		dashing = false
+		await get_tree().create_timer(dash_cooldown).timeout
+		dash_cooling_down = false
 		get_node("CollisionShape2D").disabled = false
 
 func vector_is_zero(v: Vector2) -> bool:
