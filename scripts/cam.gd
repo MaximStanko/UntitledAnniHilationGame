@@ -6,8 +6,8 @@ extends Camera2D
 @onready var anni = %Anni
 @onready var hilation = %hilation
 
-const margin = 200 # in pixels
-const max_scaler = 2
+@export var margin = 400 # in pixels
+const max_scaler = 1
 
 var viewport_size
 var intended_size
