@@ -6,8 +6,8 @@ const group_name = "enemy"
 @export var enemy_pushback = 300
 @export var weight = 0.9
 
-@onready var hilation = %hilation
-@onready var anni = %Anni
+@onready var hilation
+@onready var anni
 
 @export var stepback_duration = 0.2
 @export var retreat_slow = 0.5

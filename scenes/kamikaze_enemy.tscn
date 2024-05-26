@@ -1,8 +1,8 @@
-[gd_scene load_steps=41 format=3 uid="uid://dsb1fo2vxbpq1"]
+[gd_scene load_steps=41 format=3 uid="uid://xxr8x8uxehtw"]
 
 [ext_resource type="Script" path="res://scripts/kamikaze_enemy.gd" id="1_lmrsd"]
 [ext_resource type="Texture2D" uid="uid://c0js7xkcdhcvv" path="res://spritz/Mob/SkullA.png" id="2_ai02j"]
-[ext_resource type="Texture2D" path="res://spritz/Free_Smoke_Fx_Pixel_06.png" id="2_ip5v2"]
+[ext_resource type="Texture2D" uid="uid://bkowpdo77qob7" path="res://spritz/Free_Smoke_Fx_Pixel_06.png" id="2_ip5v2"]
 [ext_resource type="Texture2D" uid="uid://hiv1ev5gpohe" path="res://spritz/Retro Impact Effect Pack 1 A.png" id="4_8eabt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ilb3a"]

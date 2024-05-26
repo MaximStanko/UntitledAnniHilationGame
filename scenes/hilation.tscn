@@ -7,17 +7,14 @@
 [ext_resource type="Texture2D" uid="uid://dfwnjs56vmkdg" path="res://spritz/torso.png" id="5_mwtci"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rq613"]
-height = 42.0
+radius = 6.0
+height = 56.0
 
 [node name="hilation" type="CharacterBody2D"]
 texture_filter = 1
 collision_layer = 2
 collision_mask = 16
 script = ExtResource("1_5818b")
-
-[node name="hitbox" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 4)
-shape = SubResource("CapsuleShape2D_rq613")
 
 [node name="leg_l" parent="." instance=ExtResource("4_3fsqy")]
 position = Vector2(4, 13)
@@ -34,3 +31,7 @@ position = Vector2(-9, -4)
 [node name="torso" type="Sprite2D" parent="."]
 texture = ExtResource("5_mwtci")
 region_rect = Rect2(347.59, 15.8974, 171.487, 327.969)
+
+[node name="hitbox" type="CollisionShape2D" parent="."]
+position = Vector2(1, 10)
+shape = SubResource("CapsuleShape2D_rq613")
