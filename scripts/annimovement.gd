@@ -4,8 +4,8 @@ signal attached_part
 signal dropped_part
 
 # Movement speed in pixels per second.
-@export var walk_speed: float = 300.0
-@export var dash_speed: float = 900.0
+@export var walk_speed: float = 200.0
+@export var dash_speed: float = 400.0
 @export var dash_distance: float = 100.0
 @export var dash_influence_factor: float = 0.08
 @export var dash_enemy_pushback: float = 200.0

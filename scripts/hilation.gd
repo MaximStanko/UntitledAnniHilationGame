@@ -2,8 +2,8 @@ extends CharacterBody2D
 
 signal part_detached
 
-@export var BASE_SPEED = 50
-@export var LEG_SPEED = 150
+@export var BASE_SPEED = 30
+@export var LEG_SPEED = 70
 
 var attached_parts = []
 var flipped = false

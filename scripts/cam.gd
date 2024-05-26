@@ -6,8 +6,9 @@ extends Camera2D
 @onready var anni = %Anni
 @onready var hilation = %hilation
 
-@export var margin = 400 # in pixels
-const max_scaler = 1
+@export var margin = 250 # in pixels
+const max_scaler = 1.8
+const min_scaler = 1.0
 
 var viewport_size
 var intended_size
@@ -24,4 +25,4 @@ func _process(delta):
 	position = (anni.position + hilation.position) / 2
 	
 	intended_size = (Vector2.ONE * margin) + abs(anni.position - hilation.position)
-	zoom = Vector2.ONE * min(max_scaler, viewport_size.x / intended_size.x, viewport_size.y / intended_size.y)
+	zoom = Vector2.ONE * max(min_scaler, min(max_scaler, viewport_size.x / intended_size.x, viewport_size.y / intended_size.y))

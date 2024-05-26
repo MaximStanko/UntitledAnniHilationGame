@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dp0o0klfb6dc5"
-path="res://.godot/imported/Arme_Ghul_Links.png-4e5ec25a6362bfaddc6c319c3ed4575f.ctex"
+uid="uid://dp0tc01vxlmx6"
+path="res://.godot/imported/weg.png-79913dee116fcda110ae447d84c6ef4e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://spritz/Arme_Ghul_Links.png"
-dest_files=["res://.godot/imported/Arme_Ghul_Links.png-4e5ec25a6362bfaddc6c319c3ed4575f.ctex"]
+source_file="res://spritz/weg.png"
+dest_files=["res://.godot/imported/weg.png-79913dee116fcda110ae447d84c6ef4e.ctex"]
 
 [params]
 
