@@ -84,6 +84,7 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _on_player_detector_body_entered(body):
+	print(body)
 	if body==anni and not will_explode:
 		will_explode = true
 		await get_tree().create_timer(explosion_cooldown).timeout
@@ -93,6 +94,7 @@ func _on_player_detector_body_entered(body):
 		explosion_collider.disabled = false
 		await get_tree().create_timer(0.1).timeout
 		explosion_collider.disabled = true
+		game_manager.enemy_died()
 
 func take_hit(damage):
 	if has_died:
@@ -104,7 +106,7 @@ func take_hit(damage):
 			var item_instance = item_object.instantiate()
 			item_instance.position = position
 			get_parent().add_child(item_instance)
-		#game_manager.enemy_died()
+		game_manager.enemy_died()
 		await get_tree().create_timer(0.2).timeout
 		active_skull.play("death")
 		return
