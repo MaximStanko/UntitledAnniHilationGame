@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://df1x1lt7u0s8x"
-path="res://.godot/imported/Arme_Ghul_Links.png-4e5ec25a6362bfaddc6c319c3ed4575f.ctex"
+uid="uid://bd1nuor1apkom"
+path="res://.godot/imported/realheart.png-659f4fb37ccefe0d27d42d3c89b3baab.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://spritz/Arme_Ghul_Links.png"
-dest_files=["res://.godot/imported/Arme_Ghul_Links.png-4e5ec25a6362bfaddc6c319c3ed4575f.ctex"]
+source_file="res://spritz/realheart.png"
+dest_files=["res://.godot/imported/realheart.png-659f4fb37ccefe0d27d42d3c89b3baab.ctex"]
 
 [params]
 

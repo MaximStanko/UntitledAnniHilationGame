@@ -1,0 +1,104 @@
+[gd_scene load_steps=15 format=3 uid="uid://dbtb161o7afx1"]
+
+[ext_resource type="Script" path="res://scripts/ranged_enemy.gd" id="1_m5d80"]
+[ext_resource type="Texture2D" uid="uid://c1vcf7mut77v0" path="res://spritz/schnabeltier - Kopie.png" id="2_dx8oe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jrmiq"]
+size = Vector2(6, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1qnr6"]
+atlas = ExtResource("2_dx8oe")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dbde7"]
+atlas = ExtResource("2_dx8oe")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jwaty"]
+atlas = ExtResource("2_dx8oe")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ctlj7"]
+atlas = ExtResource("2_dx8oe")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jortv"]
+atlas = ExtResource("2_dx8oe")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n35le"]
+atlas = ExtResource("2_dx8oe")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wp4dj"]
+atlas = ExtResource("2_dx8oe")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qgr3n"]
+atlas = ExtResource("2_dx8oe")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_guv1x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1qnr6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dbde7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jwaty")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ctlj7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jortv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n35le")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wp4dj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qgr3n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="GDScript" id="GDScript_gteii"]
+script/source = "extends Area2D
+
+
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2mnqc"]
+size = Vector2(10, 16)
+
+[node name="ranged_enemy" type="CharacterBody2D" groups=["enemy"]]
+script = ExtResource("1_m5d80")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -7)
+shape = SubResource("RectangleShape2D_jrmiq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -12)
+sprite_frames = SubResource("SpriteFrames_guv1x")
+autoplay = "default"
+frame_progress = 0.206804
+
+[node name="PlayerDetector" type="Area2D" parent="."]
+script = SubResource("GDScript_gteii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
+position = Vector2(1, -7)
+shape = SubResource("RectangleShape2D_2mnqc")
+
+[node name="AttackCooldown" type="Timer" parent="."]
+
+[connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]

@@ -4,4 +4,4 @@
 
 [node name="Spawner" type="Node2D"]
 script = ExtResource("1_xfgn4")
-enemy_file_location = "res://scenes/enemy_prototyp.tscn"
+enemy_file_location = "res://scenes/enemy_prototype.tscn"
