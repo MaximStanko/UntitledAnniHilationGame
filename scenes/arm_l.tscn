@@ -1,0 +1,78 @@
+[gd_scene load_steps=13 format=3 uid="uid://d1fcoqil04rns"]
+
+[ext_resource type="Script" path="res://scripts/arm_l.gd" id="1_ylg0l"]
+[ext_resource type="Texture2D" uid="uid://cm4vn055e1ckd" path="res://spritz/Arme_Ghul_Rechts.png" id="2_4lm48"]
+[ext_resource type="PackedScene" uid="uid://ntb02rtj11ec" path="res://scenes/strike_component.tscn" id="3_e4xsr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bsirl"]
+atlas = ExtResource("2_4lm48")
+region = Rect2(70, 0, 70, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3hr2a"]
+atlas = ExtResource("2_4lm48")
+region = Rect2(210, 0, 70, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xa8hi"]
+atlas = ExtResource("2_4lm48")
+region = Rect2(350, 0, 70, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_11m85"]
+atlas = ExtResource("2_4lm48")
+region = Rect2(490, 0, 70, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ns6yr"]
+atlas = ExtResource("2_4lm48")
+region = Rect2(630, 0, 70, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uq5mg"]
+atlas = ExtResource("2_4lm48")
+region = Rect2(770, 0, 70, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mohv0"]
+atlas = ExtResource("2_4lm48")
+region = Rect2(910, 0, 70, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oid77"]
+atlas = ExtResource("2_4lm48")
+region = Rect2(1050, 0, 70, 93)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_frta7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bsirl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3hr2a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xa8hi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_11m85")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ns6yr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uq5mg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mohv0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oid77")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="arm_l" type="Node2D"]
+script = ExtResource("1_ylg0l")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_frta7")
+offset = Vector2(-9, -6)
+
+[node name="strike_component" parent="." instance=ExtResource("3_e4xsr")]

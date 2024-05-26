@@ -9,8 +9,9 @@ var velocity = Vector2.ZERO
 
 func init(part, hilation):
 	self.body_part = part
-	self.add_child(part.get_node("Sprite2D").duplicate())
-	self.get_node("Sprite2D").rotation = 0
+	var sprite = part.get_node("Sprite").duplicate()
+	sprite.rotation = 0.0
+	self.add_child(sprite)
 	self.rotation = randf_range(0, 2*PI)
 	self.position = hilation.position+part.position
 	self.add_to_group("dropped_parts")

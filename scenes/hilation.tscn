@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://ccxn50scwcqdc"]
+[gd_scene load_steps=7 format=3 uid="uid://ccxn50scwcqdc"]
 
 [ext_resource type="Script" path="res://scripts/hilation.gd" id="1_5818b"]
-[ext_resource type="PackedScene" uid="uid://d1fcoqil04rns" path="res://scenes/arm.tscn" id="3_iq7d8"]
-[ext_resource type="Texture2D" uid="uid://d20jmxweobex2" path="res://spritz/gBot_pieces.webp" id="3_tpinn"]
+[ext_resource type="PackedScene" uid="uid://c5l04lw0r53t5" path="res://scenes/arm_r.tscn" id="2_4xtkt"]
+[ext_resource type="PackedScene" uid="uid://d1fcoqil04rns" path="res://scenes/arm_l.tscn" id="3_iq7d8"]
 [ext_resource type="PackedScene" uid="uid://xyt6r3o4pq4s" path="res://scenes/leg.tscn" id="4_3fsqy"]
+[ext_resource type="Texture2D" uid="uid://dfwnjs56vmkdg" path="res://spritz/torso.png" id="5_mwtci"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rq613"]
 height = 42.0
@@ -14,25 +15,22 @@ collision_layer = 2
 collision_mask = 16
 script = ExtResource("1_5818b")
 
-[node name="arm_l" parent="." instance=ExtResource("3_iq7d8")]
-position = Vector2(8, -3)
-scale = Vector2(-1, 1)
-
-[node name="torso" type="Sprite2D" parent="."]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("3_tpinn")
-region_enabled = true
-region_rect = Rect2(347.59, 15.8974, 171.487, 327.969)
-
-[node name="arm_r" parent="." instance=ExtResource("3_iq7d8")]
-position = Vector2(-9, -2)
-
 [node name="hitbox" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 4)
 shape = SubResource("CapsuleShape2D_rq613")
 
 [node name="leg_l" parent="." instance=ExtResource("4_3fsqy")]
-position = Vector2(6, 17)
+position = Vector2(4, 13)
 
 [node name="leg_r" parent="." instance=ExtResource("4_3fsqy")]
-position = Vector2(-6, 16)
+position = Vector2(-5, 13)
+
+[node name="arm_l" parent="." instance=ExtResource("3_iq7d8")]
+position = Vector2(10, -6)
+
+[node name="arm_r" parent="." instance=ExtResource("2_4xtkt")]
+position = Vector2(-9, -4)
+
+[node name="torso" type="Sprite2D" parent="."]
+texture = ExtResource("5_mwtci")
+region_rect = Rect2(347.59, 15.8974, 171.487, 327.969)
