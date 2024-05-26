@@ -1062,4 +1062,6 @@ position = Vector2(216, 169)
 script = ExtResource("11_6qty5")
 
 [connection signal="timeout" from="GameManager/dmg_timer" to="GameManager" method="_on_dmg_timer_timeout"]
+[connection signal="attached_part" from="Anni" to="GameManager" method="_on_anni_attached_part"]
+[connection signal="dropped_part" from="Anni" to="GameManager" method="_on_anni_dropped_part"]
 [connection signal="part_detached" from="hilation" to="GameManager" method="_on_hilation_part_detached"]

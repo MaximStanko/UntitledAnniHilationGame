@@ -21,6 +21,7 @@ func _on_hilation_part_detached(body_part):
 	call_deferred("add_child", part)
 
 func _on_anni_attached_part(dropped_part):
+	print('attaching hurenshon')
 	hilation.attach(dropped_part)
 	call_deferred("remove_child", dropped_part)
 

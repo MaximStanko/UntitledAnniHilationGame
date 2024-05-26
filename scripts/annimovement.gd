@@ -5,7 +5,7 @@ signal dropped_part
 
 # Movement speed in pixels per second.
 @export var walk_speed: float = 200.0
-@export var dash_speed: float = 400.0
+@export var dash_speed: float = 600.0
 @export var dash_distance: float = 100.0
 @export var dash_influence_factor: float = 0.08
 @export var dash_enemy_pushback: float = 200.0
@@ -26,12 +26,10 @@ func dash() -> void:
 	if Input.is_action_just_pressed("anni_dash") and not dash_cooling_down:
 		dashing = true
 		dash_cooling_down = true
-		get_node("CollisionShape2D").disabled = true
 		await get_tree().create_timer(dash_distance / dash_speed).timeout
 		dashing = false
 		await get_tree().create_timer(dash_cooldown).timeout
 		dash_cooling_down = false
-		get_node("CollisionShape2D").disabled = false
 
 func vector_is_zero(v: Vector2) -> bool:
 	return abs(v.x) < 0.01 and abs(v.y) < 0.01
@@ -83,6 +81,7 @@ func on_hit(dmg = 20):
 func _on_area_2d_body_entered(body):
 	if body == hilation:
 		if self.carried_part:
+			print('anni is attaching', carried_part)
 			attached_part.emit(carried_part)
 			self.carried_part = null
 	elif "dropped_parts" in body.get_groups():
