@@ -1,0 +1,79 @@
+[gd_scene load_steps=13 format=3 uid="uid://c5l04lw0r53t5"]
+
+[ext_resource type="Script" path="res://scripts/arm_r.gd" id="1_54jeo"]
+[ext_resource type="Texture2D" uid="uid://b7rkg5ek77rxi" path="res://spritz/arms_right.png" id="1_fhv0u"]
+[ext_resource type="PackedScene" uid="uid://ntb02rtj11ec" path="res://scenes/strike_component.tscn" id="3_imiab"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c2etm"]
+atlas = ExtResource("1_fhv0u")
+region = Rect2(70, 0, 70, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3de4"]
+atlas = ExtResource("1_fhv0u")
+region = Rect2(210, 0, 70, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iajn5"]
+atlas = ExtResource("1_fhv0u")
+region = Rect2(350, 0, 70, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e4245"]
+atlas = ExtResource("1_fhv0u")
+region = Rect2(490, 0, 70, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qqikq"]
+atlas = ExtResource("1_fhv0u")
+region = Rect2(630, 0, 70, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g1g0t"]
+atlas = ExtResource("1_fhv0u")
+region = Rect2(770, 0, 70, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xr1nw"]
+atlas = ExtResource("1_fhv0u")
+region = Rect2(910, 0, 70, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2uqw1"]
+atlas = ExtResource("1_fhv0u")
+region = Rect2(1050, 0, 70, 93)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xwvv0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c2etm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o3de4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iajn5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e4245")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qqikq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g1g0t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xr1nw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2uqw1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="arm_r" type="Node2D"]
+script = ExtResource("1_54jeo")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_xwvv0")
+offset = Vector2(2, -8)
+
+[node name="strike_component" parent="." instance=ExtResource("3_imiab")]
+position = Vector2(-41, 0)

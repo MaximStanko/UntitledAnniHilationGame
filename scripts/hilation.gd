@@ -33,11 +33,12 @@ func _physics_process(delta):
 		$leg_r.set("is_walking", false)
 
 	if self.velocity.x < 0:
-		flipped = true
-	elif self.velocity.x > 0:
 		flipped = false
-	for part in self.attached_parts:
-		part.get_node("Sprite2D").flip_h = flipped
+	elif self.velocity.x > 0:
+		flipped = true
+	$torso.flip_h = flipped
+	$leg_l/Sprite.scale.x = 1.0 if flipped else -1.0
+	$leg_r/Sprite.scale.x = 1.0 if flipped else -1.0
 
 	if Input.is_action_pressed("hilation_strike_r"):
 		$arm_r.strike()

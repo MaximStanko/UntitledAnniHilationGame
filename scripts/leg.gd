@@ -9,7 +9,7 @@ var is_flipped = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$Sprite.play()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -19,13 +19,15 @@ func _process(delta):
 		var rot = sin(walk_progress*2*PI/self.STEP_DURATION)
 		if is_flipped:
 			rot = -rot
-		$Sprite2D.rotation = rot * self.STEP_ROTATION
+		$Sprite.rotation = rot * self.STEP_ROTATION
 	else:
 		self.walk_progress = 0.0
-		$Sprite2D.rotation = 0
+		$Sprite.rotation = 0
 
 func detach():
+	$Sprite.pause()
 	hide()
 
 func attach():
+	$Sprite.play()
 	show()
