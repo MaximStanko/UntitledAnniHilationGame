@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://ickdijbnfl8j"]
 
 [ext_resource type="Script" path="res://scripts/annimovement.gd" id="1_i21sx"]
-[ext_resource type="Texture2D" path="res://spritz/anni.png" id="2_k2yct"]
+[ext_resource type="Texture2D" uid="uid://ewdydlub36qx" path="res://spritz/anni.png" id="2_k2yct"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s1wac"]
 atlas = ExtResource("2_k2yct")
