@@ -1,1 +1,4 @@
 .godot/
+addons/
+*.x86_64
+*.pck

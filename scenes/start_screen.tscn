@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://bw2mteveky8ae"]
+
+[ext_resource type="Script" path="res://scripts/start_screen.gd" id="1_06b7j"]
+[ext_resource type="FontFile" uid="uid://cmt8735fmx2bf" path="res://spritz/DungeonFont.ttf" id="1_rx0ix"]
+[ext_resource type="Texture2D" uid="uid://bn2ijkakefqmt" path="res://spritz/hilation_artwork.png" id="3_e3py7"]
+[ext_resource type="Texture2D" uid="uid://8n2b6ifdjwg2" path="res://spritz/anni_artwork.png" id="4_bre2k"]
+
+[node name="StartScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_06b7j")
+
+[node name="PlayButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 292.0
+offset_top = 137.0
+offset_right = 390.0
+offset_bottom = 182.0
+theme_override_fonts/font = ExtResource("1_rx0ix")
+theme_override_font_sizes/font_size = 25
+text = "Play"
+
+[node name="QuitButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 483.0
+offset_top = 137.0
+offset_right = 581.0
+offset_bottom = 182.0
+theme_override_fonts/font = ExtResource("1_rx0ix")
+theme_override_font_sizes/font_size = 25
+text = "Quit"
+
+[node name="HilationArtwork" type="Sprite2D" parent="."]
+position = Vector2(717, 364)
+scale = Vector2(1.31703, 1.31703)
+texture = ExtResource("3_e3py7")
+
+[node name="AnniArtwork" type="Sprite2D" parent="."]
+position = Vector2(150, 342)
+scale = Vector2(0.365885, 0.365885)
+texture = ExtResource("4_bre2k")
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
