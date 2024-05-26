@@ -3,8 +3,8 @@ extends Control
 const scale_factor = 1.08
 const scaleback_time = 0.3
 
-const player1 = 0
-const player2 = 1
+const player1 = 1
+const player2 = 0
 
 @onready var hilation_art = get_node("HilationArtwork")
 @onready var anni_art = get_node("AnniArtwork")
