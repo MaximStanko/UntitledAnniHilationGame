@@ -6,9 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://b010slg5pj70n" path="res://spritz/Mob/BatN.png" id="3_apks2"]
 [ext_resource type="Texture2D" uid="uid://d1bi66lox5jgx" path="res://spritz/Mob/BatS.png" id="4_ghgs2"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_cebyu"]
-radius = 4.0
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_o55j3"]
 atlas = ExtResource("2_jl7g0")
 region = Rect2(76, 0, 38, 36)
@@ -184,8 +181,9 @@ script/source = "extends Area2D
 radius = 7.25
 
 [node name="Enemy_Prototype" type="CharacterBody2D" groups=["enemy"]]
+z_index = 2
+z_as_relative = false
 collision_layer = 4
-collision_mask = 0
 script = ExtResource("1_18nj7")
 
 [node name="bat_1" type="AnimatedSprite2D" parent="."]
