@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://ccxn50scwcqdc"]
 
 [ext_resource type="Script" path="res://scripts/hilation.gd" id="1_5818b"]
-[ext_resource type="PackedScene" uid="uid://c5l04lw0r53t5" path="res://scenes/arm_r.tscn" id="2_4xtkt"]
-[ext_resource type="PackedScene" uid="uid://d1fcoqil04rns" path="res://scenes/arm_l.tscn" id="3_iq7d8"]
+[ext_resource type="PackedScene" path="res://scenes/arm_r.tscn" id="2_4xtkt"]
+[ext_resource type="PackedScene" path="res://scenes/arm_l.tscn" id="3_iq7d8"]
 [ext_resource type="PackedScene" uid="uid://xyt6r3o4pq4s" path="res://scenes/leg.tscn" id="4_3fsqy"]
 [ext_resource type="Texture2D" uid="uid://dfwnjs56vmkdg" path="res://spritz/torso.png" id="5_mwtci"]
 
