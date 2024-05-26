@@ -171,6 +171,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_cebyu"]
+radius = 4.0
+
 [sub_resource type="GDScript" id="GDScript_gteii"]
 script/source = "extends Area2D
 
@@ -184,10 +187,6 @@ radius = 7.25
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_18nj7")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, -11)
-shape = SubResource("CircleShape2D_cebyu")
 
 [node name="bat_1" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -11)
@@ -206,6 +205,10 @@ visible = false
 position = Vector2(1, -11)
 sprite_frames = SubResource("SpriteFrames_31kxc")
 autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -11)
+shape = SubResource("CircleShape2D_cebyu")
 
 [node name="PlayerDetector" type="Area2D" parent="."]
 collision_layer = 0
