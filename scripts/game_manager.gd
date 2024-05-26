@@ -7,7 +7,11 @@ extends Node
 func DIFF(n):
 	# Funktion für potenziell non-linearen wave-size Anstieg
 	# Im Moment sehr simpel:
-	return n
+	var frac : int = n/2
+	if not frac:
+		frac = 1
+	
+	return 4*n*frac
 
 var let_dmg = true
 var dropped_part = preload("res://scenes/dropped_part.tscn")
@@ -47,19 +51,21 @@ func start_wave():
 	enemies_spawned = 0
 	
 	for spawner in get_tree().get_nodes_in_group("spawner"):
-		print()
-		print(get_tree().get_nodes_in_group("spawner").size())
 		var spawn_amount : int = wave_size / get_tree().get_nodes_in_group("spawner").size()
+		print(wave_size_remaining)
 		if wave_size_remaining:
 			spawner.spawned = 0
 			if spawn_amount:
 				spawner.spawn_amount = spawn_amount
-				print(spawner.spawn_amount)
+				#print(spawner.spawn_amount)
 				wave_size_remaining -= spawn_amount
 			else:
 				spawner.spawn_amount = wave_size_remaining
 				wave_size_remaining = 0
 			spawner.wave_ongoing = true
+			print(spawner.wave_ongoing)
+			print(spawner.spawn_amount)
+			print()
 
 func enemy_spawned():
 	enemies_in_game += 1

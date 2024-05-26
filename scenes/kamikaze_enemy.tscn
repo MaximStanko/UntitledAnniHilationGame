@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://dsb1fo2vxbpq1"]
+[gd_scene load_steps=41 format=3 uid="uid://xxr8x8uxehtw"]
 
 [ext_resource type="Script" path="res://scripts/kamikaze_enemy.gd" id="1_lmrsd"]
 [ext_resource type="Texture2D" uid="uid://c0js7xkcdhcvv" path="res://spritz/Mob/SkullA.png" id="2_ai02j"]
