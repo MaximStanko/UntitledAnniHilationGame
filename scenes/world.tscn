@@ -1002,8 +1002,7 @@ script = ExtResource("1_y3ec5")
 [node name="dmg_timer" type="Timer" parent="GameManager"]
 wait_time = 0.6
 
-[node name="Spawner" parent="." instance=ExtResource("4_pv2u7")]
-visible = false
+[node name="Spawner" parent="." groups=["spawner"] instance=ExtResource("4_pv2u7")]
 position = Vector2(480, 244)
 
 [node name="Projectile" parent="." instance=ExtResource("5_gxjrv")]
@@ -1062,4 +1061,6 @@ position = Vector2(216, 169)
 script = ExtResource("11_6qty5")
 
 [connection signal="timeout" from="GameManager/dmg_timer" to="GameManager" method="_on_dmg_timer_timeout"]
+[connection signal="attached_part" from="Anni" to="GameManager" method="_on_anni_attached_part"]
+[connection signal="dropped_part" from="Anni" to="GameManager" method="_on_anni_dropped_part"]
 [connection signal="part_detached" from="hilation" to="GameManager" method="_on_hilation_part_detached"]
