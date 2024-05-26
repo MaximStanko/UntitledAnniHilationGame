@@ -80,6 +80,8 @@ script/source = "extends Area2D
 size = Vector2(10, 16)
 
 [node name="ranged_enemy" type="CharacterBody2D" groups=["enemy"]]
+collision_layer = 4
+collision_mask = 0
 script = ExtResource("1_m5d80")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -93,6 +95,8 @@ autoplay = "default"
 frame_progress = 0.206804
 
 [node name="PlayerDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
 script = SubResource("GDScript_gteii")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]

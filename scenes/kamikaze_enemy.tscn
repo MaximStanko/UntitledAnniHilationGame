@@ -260,10 +260,11 @@ script/source = "extends Area2D
 radius = 20.0
 
 [node name="Kamikaze_Enemy" type="CharacterBody2D" groups=["enemy"]]
+collision_layer = 4
+collision_mask = 0
 script = ExtResource("1_lmrsd")
 
 [node name="skull_1" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -11)
 sprite_frames = SubResource("SpriteFrames_4v1mo")
 animation = &"explode"
 autoplay = "default"
@@ -273,34 +274,33 @@ speed_scale = 2.0
 
 [node name="skull_2" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(0, -11)
 sprite_frames = SubResource("SpriteFrames_4v1mo")
 animation = &"ignite"
 autoplay = "default"
 
 [node name="skull_3" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(0, -11)
 sprite_frames = SubResource("SpriteFrames_4v1mo")
 animation = &"ignite"
 autoplay = "default"
 frame_progress = 0.633282
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -11)
 shape = SubResource("CircleShape2D_cebyu")
 
 [node name="PlayerDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
 script = SubResource("GDScript_gteii")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
-position = Vector2(0, -11)
 shape = SubResource("CircleShape2D_f7bku")
 
 [node name="ExplosionArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
 
 [node name="Collider" type="CollisionShape2D" parent="ExplosionArea"]
-position = Vector2(0, -11)
 shape = SubResource("CircleShape2D_1g5mp")
 disabled = true
 
