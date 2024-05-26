@@ -84,7 +84,6 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _on_player_detector_body_entered(body):
-	print(body)
 	if body==anni and not will_explode:
 		will_explode = true
 		await get_tree().create_timer(explosion_cooldown).timeout

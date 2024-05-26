@@ -59,9 +59,18 @@ func _physics_process(_delta) -> void:
 	
 	# sprite orientation
 	if self.velocity.x < 0:
-		$AnimatedSprite2D.flip_h = true
+		$AnimatedSprite2D.animation = "left"
 	elif self.velocity.x > 0:
-		$AnimatedSprite2D.flip_h = false
+		$AnimatedSprite2D.animation = "right"
+	elif self.velocity.y > 0:
+		$AnimatedSprite2D.animation = "down"
+	else:
+		$AnimatedSprite2D.animation = "up"
+	
+	if self.velocity.length() > 0:
+		$AnimatedSprite2D.play()
+	else:
+		$AnimatedSprite2D.pause()
 	
 	# carry part
 	if self.carried_part:

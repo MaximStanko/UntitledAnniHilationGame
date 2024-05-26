@@ -54,6 +54,5 @@ func on_hit():
 
 func attach(dropped_part):
 	var part = dropped_part.body_part
-	print('attaching part', part)
 	part.attach()
 	self.attached_parts.append(part)

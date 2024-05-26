@@ -1,6 +1,6 @@
 extends Node2D
 
-var speed: float = 200.0
+var speed: float = 100.0
 var direction: Vector2 = Vector2.RIGHT
 var distance: float = 150.0
 
@@ -19,6 +19,7 @@ func _process(delta):
 		queue_free()
 
 func _on_area_2d_body_entered(body):
+	print(body, anni, hilation)
 	if body==anni or body==hilation:
 		body.on_hit()
 		queue_free()

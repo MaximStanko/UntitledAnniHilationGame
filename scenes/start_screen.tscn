@@ -1,9 +1,74 @@
-[gd_scene load_steps=5 format=3 uid="uid://bw2mteveky8ae"]
+[gd_scene load_steps=15 format=3 uid="uid://bw2mteveky8ae"]
 
 [ext_resource type="Script" path="res://scripts/start_screen.gd" id="1_06b7j"]
 [ext_resource type="FontFile" uid="uid://cmt8735fmx2bf" path="res://spritz/DungeonFont.ttf" id="1_rx0ix"]
-[ext_resource type="Texture2D" uid="uid://bn2ijkakefqmt" path="res://spritz/hilation_artwork.png" id="3_e3py7"]
-[ext_resource type="Texture2D" uid="uid://8n2b6ifdjwg2" path="res://spritz/anni_artwork.png" id="4_bre2k"]
+[ext_resource type="Texture2D" uid="uid://bstpk6847io46" path="res://spritz/Titelbild.png" id="2_ictf0"]
+[ext_resource type="Texture2D" uid="uid://ewdydlub36qx" path="res://spritz/anni.png" id="3_70o8p"]
+[ext_resource type="Texture2D" uid="uid://bbb1cwtglvvxf" path="res://spritz/Bringer-of-Death-SpritSheet.png" id="4_pnrof"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gx4yf"]
+atlas = ExtResource("4_pnrof")
+region = Rect2(70, 0, 70, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f63ix"]
+atlas = ExtResource("4_pnrof")
+region = Rect2(210, 0, 70, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qjih4"]
+atlas = ExtResource("4_pnrof")
+region = Rect2(350, 0, 70, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_403ms"]
+atlas = ExtResource("4_pnrof")
+region = Rect2(490, 0, 70, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jmydf"]
+atlas = ExtResource("4_pnrof")
+region = Rect2(630, 0, 70, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oaqux"]
+atlas = ExtResource("4_pnrof")
+region = Rect2(770, 0, 70, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l0tuf"]
+atlas = ExtResource("4_pnrof")
+region = Rect2(910, 0, 70, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uq0nw"]
+atlas = ExtResource("4_pnrof")
+region = Rect2(1050, 0, 70, 93)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ibkn0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gx4yf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f63ix")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qjih4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_403ms")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jmydf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oaqux")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l0tuf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uq0nw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="StartScreen" type="Control"]
 layout_mode = 3
@@ -14,35 +79,44 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_06b7j")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(413, 241)
+scale = Vector2(3.60776, 3.60776)
+texture = ExtResource("2_ictf0")
+
+[node name="QuitButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 462.0
+offset_top = 136.0
+offset_right = 560.0
+offset_bottom = 181.0
+theme_override_fonts/font = ExtResource("1_rx0ix")
+theme_override_font_sizes/font_size = 25
+text = "Quit"
+
+[node name="AnniArtwork" type="Sprite2D" parent="."]
+position = Vector2(430, 358)
+scale = Vector2(10.5915, 10.5915)
+texture = ExtResource("3_70o8p")
+region_enabled = true
+region_rect = Rect2(0, 0, 16.8576, 26.4198)
+
+[node name="HilationArtwork" type="AnimatedSprite2D" parent="."]
+position = Vector2(665, 123)
+scale = Vector2(9.62857, 8.87366)
+sprite_frames = SubResource("SpriteFrames_ibkn0")
+autoplay = "default"
+frame_progress = 0.0432397
+
 [node name="PlayButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 292.0
+offset_left = 246.0
 offset_top = 137.0
-offset_right = 390.0
+offset_right = 344.0
 offset_bottom = 182.0
 theme_override_fonts/font = ExtResource("1_rx0ix")
 theme_override_font_sizes/font_size = 25
 text = "Play"
 
-[node name="QuitButton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 483.0
-offset_top = 137.0
-offset_right = 581.0
-offset_bottom = 182.0
-theme_override_fonts/font = ExtResource("1_rx0ix")
-theme_override_font_sizes/font_size = 25
-text = "Quit"
-
-[node name="HilationArtwork" type="Sprite2D" parent="."]
-position = Vector2(717, 364)
-scale = Vector2(1.31703, 1.31703)
-texture = ExtResource("3_e3py7")
-
-[node name="AnniArtwork" type="Sprite2D" parent="."]
-position = Vector2(150, 342)
-scale = Vector2(0.365885, 0.365885)
-texture = ExtResource("4_bre2k")
-
-[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]

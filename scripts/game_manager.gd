@@ -11,7 +11,7 @@ func DIFF(n):
 	if not frac:
 		frac = 1
 	
-	return 4*n*frac
+	return n+frac
 
 var let_dmg = true
 var dropped_part = preload("res://scenes/dropped_part.tscn")
@@ -41,7 +41,7 @@ var wave_size_remaining
 var enemies_in_game
 var enemies_spawned
 
-var wave_pause = 10
+var wave_pause = 5
 
 func start_wave():
 	HUD.update_wave(_wave)
@@ -50,22 +50,31 @@ func start_wave():
 	enemies_in_game = 0
 	enemies_spawned = 0
 	
+	var spawners = []
+	for s in get_tree().get_nodes_in_group("spawner"):
+		if s.wave <= _wave:
+			spawners.append(s)
+	
+	print("AAAAAAAAAAAA")
+	for spawner in spawners:
+		spawner.spawned = 0
+		spawner.spawn_amount = wave_size / spawners.size()
+		spawner.wave_ongoing = true
+	
+	spawners[0].spawn_amount += wave_size % spawners.size()
 	for spawner in get_tree().get_nodes_in_group("spawner"):
-		var spawn_amount : int = wave_size / get_tree().get_nodes_in_group("spawner").size()
-		print(wave_size_remaining)
-		if wave_size_remaining:
-			spawner.spawned = 0
-			if spawn_amount:
-				spawner.spawn_amount = spawn_amount
-				#print(spawner.spawn_amount)
-				wave_size_remaining -= spawn_amount
-			else:
-				spawner.spawn_amount = wave_size_remaining
-				wave_size_remaining = 0
-			spawner.wave_ongoing = true
-			print(spawner.wave_ongoing)
-			print(spawner.spawn_amount)
-			print()
+		print("setting", spawner, "amount", spawner.spawn_amount)
+	
+	
+		#if wave_size_remaining:
+		#	spawner.spawned = 0
+		#	if spawn_amount:
+		#		spawner.spawn_amount = spawn_amount
+		#		wave_size_remaining -= spawn_amount
+		#	else:
+		#		spawner.spawn_amount = wave_size_remaining
+		#		wave_size_remaining = 0
+		#	spawner.wave_ongoing = true
 
 func enemy_spawned():
 	enemies_in_game += 1
@@ -73,8 +82,9 @@ func enemy_spawned():
 
 func enemy_died():
 	enemies_in_game -= 1
-	#print(enemies_in_game)
-	#print(enemies_spawned)
+	print("DSFDSFDSF")
+	print(enemies_spawned)
+	print(wave_size)
 	if enemies_in_game == 0 and enemies_spawned == wave_size:
 		for spawner in get_tree().get_nodes_in_group("spawner"):
 			spawner.wave_ongoing = false

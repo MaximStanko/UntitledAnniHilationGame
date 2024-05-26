@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://u24li83wi45g" path="res://spritz/HealthBar DARK.png" id="9_it7me"]
 
 [node name="HUD" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_13kae")
 
 [node name="score_display" type="Label" parent="."]
@@ -104,6 +105,15 @@ scale = Vector2(2.79412, 2.79412)
 texture = ExtResource("9_it7me")
 region_enabled = true
 region_rect = Rect2(12.1861, 129.503, 72.4737, 17.1169)
+
+[node name="PauseScreen" type="ColorRect" parent="."]
+process_mode = 3
+visible = false
+offset_left = -47.0
+offset_top = -33.0
+offset_right = 886.0
+offset_bottom = 507.0
+color = Color(0.0431373, 0.0431373, 0.0431373, 0.505882)
 
 [connection signal="timeout" from="survive_time" to="." method="_on_survive_time_timeout"]
 [connection signal="pressed" from="game_over/Button" to="." method="_on_button_pressed"]

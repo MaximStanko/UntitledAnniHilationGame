@@ -108,7 +108,6 @@ func _on_player_detector_body_entered(body):
 func take_hit(damage):
 	if has_died:
 		return
-	print("debug: enemy hit")
 	hp -= damage
 	if hp <= 0:
 		has_died = true

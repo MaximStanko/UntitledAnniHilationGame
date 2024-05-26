@@ -7,6 +7,7 @@ extends Node2D
 
 @export var enemy_file_location: String
 @export var spawn_interval: float = 4.0
+@export var wave = 1
 #@export var spawn_amount: int = 5
 # vvv mit wave control:
 var spawn_amount
@@ -22,6 +23,7 @@ func _ready():
 
 func spawn():
 	if spawn_new and spawned < spawn_amount:
+		print(self, "spawn", spawned, spawn_amount)
 		spawn_new = false
 		spawned += 1
 		await get_tree().create_timer(spawn_interval).timeout
@@ -38,5 +40,8 @@ func spawn():
 		spawn_new = true
 
 func _process(_delta):
-	if wave_ongoing:
+	if wave_ongoing and game_manager._wave >= wave:
+		#print(self, spawn_amount)
 		spawn()
+	#else:
+		#game_manager.enemy_spawned()

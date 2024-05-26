@@ -8,12 +8,15 @@ extends CanvasLayer
 #@onready var health_display = $health_display
 
 @onready var game_over = $game_over
+@onready var pause_screen = $PauseScreen
 
 @export var health = 200
 
 var time = 0
 var score = 0
 var anni_hp = health
+
+var paused = false
 
 # neue Lebensleiste
 @onready var bar_container = $new_healthbar/Control
@@ -23,6 +26,17 @@ var bar_size = 165
 func _ready():
 	game_over.visible = false
 	survive_time.start()
+
+func _input(event):
+	if event.is_action_pressed("pause"):
+		if paused:
+			paused = false
+			get_tree().paused = false
+			pause_screen.visible = false
+		else:
+			paused = true
+			get_tree().paused = true
+			pause_screen.visible = true
 
 func _on_survive_time_timeout():
 	time += 1
@@ -38,6 +52,7 @@ func update_health(change):
 #	health_display.text = "Health: " + str(anni_hp)
 	if (anni_hp <= 0):
 		Engine.time_scale = 0
+		get_node("game_over/Button").grab_focus()
 		game_over.visible = true
 		bar_container.size.x = 0
 	else:

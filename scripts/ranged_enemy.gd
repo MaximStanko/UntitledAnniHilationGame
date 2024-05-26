@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 const group_name = "enemy"
 
-@export var SPEED = 100
+@export var SPEED = 20
 @export var enemy_pushback = 300
 @export var weight = 0.9
 
@@ -12,19 +12,20 @@ const group_name = "enemy"
 @export var stepback_duration = 0.2
 @export var retreat_slow = 0.5
 @export var damage_slow_duration = 0.2
-@export var attack_cooldown = 0.7
-@export var start_hp = 80
+@export var attack_cooldown = 1.8
+@export var start_hp = 50
 
-@export var shoot_dist = 160.0
-@export var stop_dist = 120.0
-@export var projectile_speed = 200.0
-@export var shoot_cooldown = 0.7
-@export var walk_cooldown = 0.3
+@export var shoot_dist = 120.0
+@export var stop_dist = 100.0
+@export var projectile_speed = 100.0
+@export var shoot_cooldown = 1.8
+@export var walk_cooldown = 0.7
 
 @onready var attack_cooldown_timer = $AttackCooldown
 
 var projectile = preload("res://scenes/projectile.tscn")
 
+var game_manager
 var player
 var damage_slow = 1
 var nearest_enemy
@@ -54,7 +55,6 @@ func vector_is_zero(v: Vector2) -> bool:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	if has_died:
-		# handle death animation
 		return
 	
 	if len(hilation.attached_parts) != 0 and (hilation.position - position).length() < (anni.position - position).length():
@@ -96,10 +96,11 @@ func _physics_process(delta):
 		await get_tree().create_timer(walk_cooldown).timeout
 		can_walk = true
 	
-	if distance <= shoot_dist and can_attack:
+	if distance <= shoot_dist and can_attack and not has_died:
 		can_attack = false
 		
 		var projectile_instance = projectile.instantiate()
+		get_node("AnimatedSprite2D").play("shoot")
 		get_parent().add_child(projectile_instance)
 		projectile_instance.distance = shoot_dist
 		projectile_instance.speed = projectile_speed
@@ -119,10 +120,11 @@ func _physics_process(delta):
 	move_and_slide()
 
 func take_hit(damage):
-	print("debug: ranged enemy hit")
 	hp -= damage
 	if hp <= 0:
 		has_died = true
+		game_manager.enemy_died()
+		get_node("AnimatedSprite2D").play("death")
 		return
 	damage_slow = 0.7
 	await get_tree().create_timer(damage_slow_duration).timeout
@@ -132,5 +134,16 @@ func _on_attack_cooldown_timeout():
 	can_attack = true
 
 func on_hit(dmg, knockback):
+	if has_died:
+		return
 	take_hit(dmg)
 	player_knockback = (position - hilation.position).normalized() * knockback / weight
+
+
+func _on_animated_sprite_2d_animation_finished():
+	print("fin")
+	print(get_node("AnimatedSprite2D").animation)
+	if get_node("AnimatedSprite2D").animation == "death":
+		queue_free()
+	if get_node("AnimatedSprite2D").animation == "shoot":
+		get_node("AnimatedSprite2D").play("default")

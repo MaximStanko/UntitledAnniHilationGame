@@ -26,7 +26,6 @@ func _process(delta):
 	if is_striking and is_attached:
 		for body in $Area2D.get_overlapping_bodies():
 			if "enemy" in body.get_groups() and not body in already_hit:
-				print("hit enemy")
 				body.on_hit(attack_damage, knockback)
 				already_hit.append(body)
 		strike_progress += delta / self.STRIKE_DURATION
