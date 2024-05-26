@@ -4,6 +4,8 @@ const group_name = "enemy"
 
 @export var SPEED = 100
 @export var enemy_pushback = 300
+@export var weight = 0.9
+
 @onready var hilation = %hilation
 @onready var anni = %Anni
 
@@ -131,4 +133,4 @@ func _on_attack_cooldown_timeout():
 
 func on_hit(dmg, knockback):
 	take_hit(dmg)
-	player_knockback = (position - hilation.position).normalized() * knockback
+	player_knockback = (position - hilation.position).normalized() * knockback / weight

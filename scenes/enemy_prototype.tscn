@@ -5,9 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://b010slg5pj70n" path="res://spritz/Mob/BatN.png" id="3_apks2"]
 [ext_resource type="Texture2D" uid="uid://d1bi66lox5jgx" path="res://spritz/Mob/BatS.png" id="4_ghgs2"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_cebyu"]
-radius = 4.0
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_slo5q"]
 atlas = ExtResource("2_fe2j7")
 region = Rect2(0, 0, 16, 16)
@@ -95,6 +92,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_cebyu"]
+radius = 4.0
+
 [sub_resource type="GDScript" id="GDScript_gteii"]
 script/source = "extends Area2D
 
@@ -106,10 +106,6 @@ radius = 7.25
 
 [node name="Enemy_Prototype" type="CharacterBody2D" groups=["enemy"]]
 script = ExtResource("1_18nj7")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, -11)
-shape = SubResource("CircleShape2D_cebyu")
 
 [node name="bat_1" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -11)
@@ -127,6 +123,10 @@ visible = false
 position = Vector2(1, -11)
 sprite_frames = SubResource("SpriteFrames_31kxc")
 autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -11)
+shape = SubResource("CircleShape2D_cebyu")
 
 [node name="PlayerDetector" type="Area2D" parent="."]
 script = SubResource("GDScript_gteii")

@@ -76,8 +76,8 @@ func _physics_process(_delta) -> void:
 		dropped_part.emit(self.carried_part)
 		self.carried_part = null
 
-func on_hit():
-	HUD.update_health(-20)
+func on_hit(dmg = 20):
+	HUD.update_health(-dmg)
 
 
 func _on_area_2d_area_entered(area):
