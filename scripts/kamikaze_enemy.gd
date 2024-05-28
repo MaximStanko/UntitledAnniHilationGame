@@ -13,7 +13,7 @@ var game_manager
 @export var stepback_duration = 0.2
 @export var retreat_slow = 0.5
 @export var damage_slow_duration = 0.2
-@export var start_hp = 50
+var start_hp
 @export var item_drop_probability = 0.1
 @export var explosion_cooldown = 0.01
 
@@ -41,6 +41,7 @@ var rng = RandomNumberGenerator.new()
 
 func _ready():
 	add_to_group(group_name)
+	start_hp = 25 + game_manager._wave * 5
 	hp = start_hp
 	explosion_collider.disabled = true
 

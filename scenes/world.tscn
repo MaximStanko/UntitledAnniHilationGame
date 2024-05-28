@@ -3327,6 +3327,7 @@ wait_time = 0.6
 [node name="Spawner" parent="." groups=["spawner"] instance=ExtResource("4_pv2u7")]
 position = Vector2(414, 92)
 enemy_file_location = "res://scenes/ranged_enemy.tscn"
+spawn_interval = 3.0
 wave = 3
 
 [node name="Projectile" parent="." instance=ExtResource("5_gxjrv")]
@@ -3396,15 +3397,18 @@ script = ExtResource("11_6qty5")
 
 [node name="Spawner2" parent="." groups=["spawner"] instance=ExtResource("4_pv2u7")]
 position = Vector2(237, 348)
+spawn_interval = 3.0
 metadata/type = "meelee"
 
 [node name="Spawner3" parent="." groups=["spawner"] instance=ExtResource("4_pv2u7")]
 position = Vector2(11, -54)
 enemy_file_location = "res://scenes/kamikaze_enemy.tscn"
+spawn_interval = 3.0
 wave = 5
 
 [node name="Spawner4" parent="." groups=["spawner"] instance=ExtResource("4_pv2u7")]
 position = Vector2(416, -74)
+spawn_interval = 3.0
 
 [connection signal="timeout" from="GameManager/dmg_timer" to="GameManager" method="_on_dmg_timer_timeout"]
 [connection signal="attached_part" from="Anni" to="GameManager" method="_on_anni_attached_part"]

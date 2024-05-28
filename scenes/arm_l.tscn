@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://d1fcoqil04rns"]
 
 [ext_resource type="Script" path="res://scripts/arm_l.gd" id="1_ylg0l"]
-[ext_resource type="Texture2D" uid="uid://cm4vn055e1ckd" path="res://spritz/Arme_Ghul_Rechts.png" id="2_4lm48"]
+[ext_resource type="Texture2D" uid="uid://dqypq4jaexsmn" path="res://spritz/Arme_Ghul_Rechts.png" id="2_4lm48"]
 [ext_resource type="PackedScene" uid="uid://ntb02rtj11ec" path="res://scenes/strike_component.tscn" id="3_e4xsr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bsirl"]

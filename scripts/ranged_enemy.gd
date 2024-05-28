@@ -13,7 +13,7 @@ const group_name = "enemy"
 @export var retreat_slow = 0.5
 @export var damage_slow_duration = 0.2
 @export var attack_cooldown = 1.8
-@export var start_hp = 50
+var start_hp = 50
 
 @export var shoot_dist = 120.0
 @export var stop_dist = 100.0
@@ -47,6 +47,7 @@ var can_walk = true
 func _ready():
 	add_to_group(group_name)
 	hp = start_hp
+	start_hp = 45 + game_manager._wave * 5
 	attack_cooldown_timer.wait_time = attack_cooldown
 
 func vector_is_zero(v: Vector2) -> bool:

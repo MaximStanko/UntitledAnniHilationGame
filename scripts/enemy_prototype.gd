@@ -14,7 +14,7 @@ var game_manager
 @export var retreat_slow = 0.5
 @export var damage_slow_duration = 0.2
 @export var attack_cooldown = 0.7
-@export var start_hp = 100
+var start_hp
 @export var item_drop_probability = 0.1
 
 @onready var attack_cooldown_timer = $AttackCooldown
@@ -40,8 +40,9 @@ var rng = RandomNumberGenerator.new()
 
 func _ready():
 	add_to_group(group_name)
-	hp = start_hp
 	attack_cooldown_timer.wait_time = attack_cooldown
+	start_hp = 90 + game_manager._wave * 10
+	hp = start_hp
 
 func vector_is_zero(v: Vector2) -> bool:
 	return abs(v.x) < 1 and abs(v.y) < 1
@@ -58,7 +59,7 @@ func _physics_process(delta):
 			if distance < lowest_distance:
 				lowest_distance = distance
 				nearest_enemy = member
-		
+	
 	if len(hilation.attached_parts) != 0 and (hilation.position - position).length() < (anni.position - position).length():
 		player = hilation
 	else:
